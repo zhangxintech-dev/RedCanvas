@@ -19,8 +19,8 @@ test('package config enables GitHub release updates and local release scripts', 
   assert.ok(pkg.dependencies['electron-updater']);
   assert.ok(pkg.dependencies['electron-log']);
   assert.equal(publish.provider, 'github');
-  assert.equal(publish.owner, 'T8mars');
-  assert.equal(publish.repo, 'T8-penguin-canvas');
+  assert.equal(publish.owner, 'zhangxintech-dev');
+  assert.equal(publish.repo, 'RedCanvas');
   assert.match(pkg.scripts['dist:release'], /scripts\/dist-release\.cjs|scripts\\dist-release\.cjs/);
   assert.match(pkg.scripts['release:verify'], /verify-github-release\.cjs/);
 });
