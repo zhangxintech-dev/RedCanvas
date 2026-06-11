@@ -111,7 +111,7 @@ function writeFallbackNotes() {
   fs.writeFileSync(
     tmp,
     [
-      `# 贞贞的无限画布 ${tag}`,
+      `# RedCanvas ${tag}`,
       '',
       '- Electron 桌面端接入 GitHub Release 自动更新。',
       '- 顶栏新增检查、下载、重启安装状态入口。',
@@ -138,7 +138,7 @@ function main() {
 
   const releaseNotes = writeFallbackNotes();
   const assets = [installer, blockmap, latest];
-  const title = `贞贞的无限画布${tag}`;
+  const title = `RedCanvas${tag}`;
   const exists = releaseExists();
 
   if (exists) {
