@@ -144,7 +144,8 @@ function main() {
   if (exists) {
     console.log(`[release] updating existing release ${tag}`);
     run('gh', ['release', 'upload', tag, ...assets, '--repo', repo, '--clobber']);
-    run('gh', ['release', 'edit', tag, '--repo', repo, '--title', title, '--notes-file', releaseNotes]);
+    // --draft=false: tag 被重建时 GitHub 会把原 Release 退化为 draft(资产 404),这里强制恢复为正式发布
+    run('gh', ['release', 'edit', tag, '--repo', repo, '--title', title, '--notes-file', releaseNotes, '--draft=false']);
   } else {
     console.log(`[release] creating release ${tag}`);
     const createArgs = [
