@@ -7,13 +7,13 @@
   "description": "Red Canvas — AI 节点画布工作流工具（Web + Electron 桌面端）",
   "author": "Red Code",
   "license": "MIT",
-  "homepage": "https://github.com/RedCode/red-canvas",
+  "homepage": "https://github.com/zhangxintech-dev/RedCanvas",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RedCode/red-canvas.git"
+    "url": "https://github.com/zhangxintech-dev/RedCanvas.git"
   },
   "bugs": {
-    "url": "https://github.com/RedCode/red-canvas/issues"
+    "url": "https://github.com/zhangxintech-dev/RedCanvas/issues"
   },
   "keywords": [
     "ai",
@@ -182,8 +182,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "T8mars",
-        "repo": "red-canvas",
+        "owner": "zhangxintech-dev",
+        "repo": "RedCanvas",
         "releaseType": "release"
       }
     ],
