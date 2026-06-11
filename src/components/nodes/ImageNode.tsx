@@ -68,6 +68,7 @@ import {
 } from '../../utils/materialExclusion';
 import { COMFY_APP_SOURCE_LABELS } from '../../utils/comfyuiApps';
 import { canonicalizeComfyFieldsByWorkflow } from '../../utils/comfyuiWorkflow';
+import { estimateGenerationProgress } from '../../utils/generationProgress';
 import { LocalNodeAddonSlot } from 'virtual:t8-local-extensions';
 
 /**
@@ -850,10 +851,14 @@ const ImageNode = ({ id, data, selected }: NodeProps) => {
       for (let i = 0; i < maxPoll; i++) {
         await new Promise((r) => setTimeout(r, interval));
         const q = await queryImageStatus(taskId, apiModel);
-        if (q.progress && q.progress !== lastProg) {
-          lastProg = q.progress;
-          update({ progress: q.progress });
-          logBus.debug(`[${i + 1}/${maxPoll}] status=${q.status} progress=${q.progress}`, src);
+        // 多数上游不返回真实 progress(后端恒返 '0%')——按轮询次数估算兜底,真实值优先
+        const shown = estimateGenerationProgress(q.progress, i);
+        if (shown !== lastProg) {
+          lastProg = shown;
+          update({ progress: shown });
+        }
+        if (i % 5 === 4) {
+          logBus.debug(`[${i + 1}/${maxPoll}] status=${q.status} progress=${q.progress || shown}`, src);
         }
         const st = String(q.status || '').toLowerCase();
         if (st === 'completed' || st === 'success' || st === 'done') {

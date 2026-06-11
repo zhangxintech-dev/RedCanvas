@@ -133,6 +133,7 @@ import {
   type PanoramaSizeLevel,
 } from '../../utils/panorama3d';
 import { materialSetItemsToData, type MaterialSetItem } from '../../utils/materialSet';
+import { estimateGenerationProgress } from '../../utils/generationProgress';
 import { placeSingleNode } from '../../utils/nodePlacement';
 import { useUpdateNodeData } from './useUpdateNodeData';
 import { useUpstreamMaterials } from './useUpstreamMaterials';
@@ -3432,10 +3433,14 @@ const Panorama3DNode = (p: NodeProps) => {
       for (let i = 0; i < maxPoll; i++) {
         await new Promise((resolve) => setTimeout(resolve, interval));
         const q = await queryImageStatus(taskId, 'gpt-image-2');
-        if (q.progress && q.progress !== lastProgress) {
-          lastProgress = q.progress;
-          update({ progress: q.progress });
-          logBus.debug(`3D全景轮询 ${i + 1}/${maxPoll}: ${q.status} ${q.progress}`, `panorama:${p.id.slice(0, 6)}`);
+        // 同 ImageNode:上游常恒返 '0%',按轮询次数估算兜底,真实值优先
+        const shown = estimateGenerationProgress(q.progress, i);
+        if (shown !== lastProgress) {
+          lastProgress = shown;
+          update({ progress: shown });
+        }
+        if (i % 5 === 4) {
+          logBus.debug(`3D全景轮询 ${i + 1}/${maxPoll}: ${q.status} ${q.progress || shown}`, `panorama:${p.id.slice(0, 6)}`);
         }
         if (q.status === 'completed' && q.urls?.length) {
           applyGeneratedPanorama(q.urls[0], { mode, prompt, promptFinal: finalPrompt, sizeLevel, referenceUrl });
