@@ -11,9 +11,9 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -21,9 +21,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 构建步骤不注入 GH_TOKEN,避免 electron-builder 自行发布与下方脚本重复
-      - name: Build Windows installer
-        run: npm run dist
+      - name: Build frontend + encrypt backend
+        run: npm run prepack:enc
+
+      - name: Prepare runtime archives
+        run: npm run prepack:runtimes
+
+      # --publish never: CI 中 electron-builder 检测到 tag 会默认尝试发布,
+      # 无 GH_TOKEN 时直接报错;发布统一由下方 release-github.cjs 完成
+      - name: Package Windows installer (NSIS)
+        run: npx electron-builder --win --x64 --publish never
+
+      - name: Post-build checks
+        run: node electron/_post_build.cjs
 
       - name: Upload installer + latest.yml to GitHub Release
         env:
@@ -38,9 +48,9 @@ jobs:
       # 无签名证书时跳过 mac 代码签名
       CSC_IDENTITY_AUTO_DISCOVERY: "false"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -48,8 +58,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build macOS dmg (arm64 + x64)
-        run: npm run dist:mac
+      - name: Build frontend + encrypt backend
+        run: npm run prepack:enc
+
+      - name: Prepare runtime archives
+        run: npm run prepack:runtimes
+
+      - name: Package macOS dmg (arm64 + x64)
+        run: npx electron-builder --mac --arm64 --x64 --publish never
+
+      - name: Post-build checks
+        run: node electron/_post_build.cjs
 
       - name: Upload mac artifacts to GitHub Release
         env:
