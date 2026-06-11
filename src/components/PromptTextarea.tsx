@@ -1,0 +1,258 @@
+import {
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  type CompositionEvent as ReactCompositionEvent,
+  type InputEvent as ReactInputEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type MutableRefObject,
+  type TextareaHTMLAttributes,
+} from 'react';
+import { Library, Maximize2 } from 'lucide-react';
+import { useThemeStore } from '../stores/theme';
+import { useShortcutStore } from '../stores/shortcuts';
+import { formatShortcutList, matchesAnyShortcut } from '../utils/keyboardShortcuts';
+import type { PromptTemplateKind } from '../data/promptTemplateLibrary';
+import PromptExpandModal, { type PromptExpandEditorKind } from './PromptExpandModal';
+import PromptTemplateLibraryModal from './PromptTemplateLibraryModal';
+
+interface PromptTextareaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange'> {
+  value: string;
+  onValueChange: (value: string) => void;
+  title: string;
+  containerClassName?: string;
+  isDark?: boolean;
+  isPixel?: boolean;
+  mono?: boolean;
+  editorKind?: PromptExpandEditorKind;
+  promptTemplateKind?: PromptTemplateKind | false;
+}
+
+const PromptTextarea = forwardRef<HTMLTextAreaElement, PromptTextareaProps>(function PromptTextarea({
+  value,
+  onValueChange,
+  title,
+  containerClassName = 'relative',
+  isDark: propIsDark,
+  isPixel: propIsPixel,
+  mono = false,
+  editorKind = 'text',
+  promptTemplateKind = false,
+  className,
+  style: textareaStyle,
+  onKeyDown,
+  onBeforeInput,
+  onCompositionStart,
+  onCompositionEnd,
+  onFocus,
+  onBlur,
+  placeholder,
+  readOnly,
+  ...rest
+}: PromptTextareaProps, forwardedRef) {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const composingRef = useRef(false);
+  const focusedRef = useRef(false);
+  const { theme, style: themeStyle } = useThemeStore();
+  const shortcuts = useShortcutStore((s) => s.shortcuts);
+  const expandCombos = shortcuts['editor.expand-prompt'];
+  const isDark = propIsDark ?? theme === 'dark';
+  const isPixel = propIsPixel ?? themeStyle === 'pixel';
+  const [expanded, setExpanded] = useState(false);
+  const [templateOpen, setTemplateOpen] = useState(false);
+  const [localValue, setLocalValue] = useState(value || '');
+  const [draft, setDraft] = useState(value || '');
+  const shortcutText = formatShortcutList(expandCombos);
+  const templateEnabled = promptTemplateKind !== false;
+  const effectiveTemplateKind = promptTemplateKind || 'image';
+
+  useEffect(() => {
+    // 聚焦或合成期间禁止父级 value 回写，避免 React re-render 打断输入法合成导致首字丢失。
+    if (composingRef.current || focusedRef.current) return;
+    setLocalValue(value || '');
+  }, [value]);
+
+  const commitValue = (nextValue: string) => {
+    setLocalValue(nextValue);
+    if (!readOnly) onValueChange(nextValue);
+  };
+
+  const isImeCompositionInput = (event: Event | null | undefined) => {
+    const native = event as (InputEvent & { isComposing?: boolean }) | null | undefined;
+    return !!native?.isComposing || /Composition/i.test(String(native?.inputType || ''));
+  };
+
+  const openExpanded = () => {
+    setDraft(localValue || '');
+    setExpanded(true);
+  };
+
+  const closeExpanded = () => {
+    setExpanded(false);
+    window.setTimeout(() => textareaRef.current?.focus(), 0);
+  };
+
+  const applyExpanded = () => {
+    commitValue(draft);
+    closeExpanded();
+  };
+
+  const handleKeyDown = (event: ReactKeyboardEvent<HTMLTextAreaElement>) => {
+    // 第三方输入法在 Electron/Chromium 下首字符可能不触发 compositionstart，
+    // keyCode === 229 是 IME 合成哨兵值（在首个 input 事件前触发），提前标记合成状态防止首字丢失。
+    if (event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) {
+      composingRef.current = true;
+    }
+    if (composingRef.current || event.nativeEvent.isComposing) {
+      onKeyDown?.(event);
+      return;
+    }
+    if (matchesAnyShortcut(expandCombos, event.nativeEvent)) {
+      event.preventDefault();
+      event.stopPropagation();
+      openExpanded();
+      return;
+    }
+    onKeyDown?.(event);
+  };
+
+  const handleBeforeInput = (event: ReactInputEvent<HTMLTextAreaElement>) => {
+    if (isImeCompositionInput(event.nativeEvent)) composingRef.current = true;
+    onBeforeInput?.(event);
+  };
+
+  const handleCompositionStart = (event: ReactCompositionEvent<HTMLTextAreaElement>) => {
+    composingRef.current = true;
+    onCompositionStart?.(event);
+  };
+
+  const handleCompositionEnd = (event: ReactCompositionEvent<HTMLTextAreaElement>) => {
+    onCompositionEnd?.(event);
+    const fallbackValue = event.currentTarget.value;
+    window.setTimeout(() => {
+      const nextValue = textareaRef.current?.value ?? fallbackValue;
+      composingRef.current = false;
+      commitValue(nextValue);
+    }, 0);
+  };
+
+  const expandButtonCls = isPixel
+    ? 'px-btn px-btn--icon px-btn--ghost'
+    : `rounded border p-1 shadow-sm ${
+        isDark ? 'border-white/10 bg-zinc-950/80 text-white/70 hover:text-white' : 'border-black/10 bg-white/90 text-zinc-600 hover:text-zinc-900'
+      }`;
+
+  const setTextareaRef = (el: HTMLTextAreaElement | null) => {
+    textareaRef.current = el;
+    if (typeof forwardedRef === 'function') {
+      forwardedRef(el);
+    } else if (forwardedRef) {
+      (forwardedRef as MutableRefObject<HTMLTextAreaElement | null>).current = el;
+    }
+  };
+
+  return (
+    <div className={containerClassName}>
+      <textarea
+        {...rest}
+        ref={setTextareaRef}
+        value={localValue}
+        readOnly={readOnly}
+        onBeforeInput={handleBeforeInput}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
+        onChange={(event) => {
+          const nextValue = event.target.value;
+          setLocalValue(nextValue);
+          if (composingRef.current || isImeCompositionInput(event.nativeEvent)) return;
+          if (!readOnly) onValueChange(nextValue);
+        }}
+        onKeyDown={handleKeyDown}
+        onFocus={(event) => {
+          focusedRef.current = true;
+          onFocus?.(event);
+        }}
+        onBlur={(event) => {
+          focusedRef.current = false;
+          // 失焦后用最新的父级 value 同步本地值（聚焦期间被冻结的回写在此补齐）。
+          if (!composingRef.current) setLocalValue(value || '');
+          onBlur?.(event);
+        }}
+        placeholder={placeholder}
+        className={className}
+        style={templateEnabled ? { ...textareaStyle, paddingRight: textareaStyle?.paddingRight ?? 64 } : textareaStyle}
+        spellCheck={false}
+      />
+      {templateEnabled && (
+        <button
+          type="button"
+          data-prompt-template-trigger
+          className={`nodrag nopan absolute top-1.5 z-10 inline-flex h-6 w-6 items-center justify-center ${expandButtonCls}`}
+          style={{ right: 34 }}
+          onMouseDown={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+          }}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setTemplateOpen(true);
+          }}
+          title="提示词模板库"
+          aria-label="提示词模板库"
+        >
+          <Library size={12} />
+        </button>
+      )}
+      <button
+        type="button"
+        data-prompt-expand-trigger
+        className={`nodrag nopan absolute right-1.5 top-1.5 z-10 inline-flex h-6 w-6 items-center justify-center ${expandButtonCls}`}
+        onMouseDown={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+        }}
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openExpanded();
+        }}
+        title={`放大编辑 (${shortcutText})`}
+        aria-label="放大编辑"
+      >
+        <Maximize2 size={12} />
+      </button>
+      <PromptExpandModal
+        open={expanded}
+        title={title}
+        value={draft}
+        onValueChange={setDraft}
+        onApply={applyExpanded}
+        onCancel={closeExpanded}
+        placeholder={typeof placeholder === 'string' ? placeholder : undefined}
+        isDark={isDark}
+        isPixel={isPixel}
+        readOnly={!!readOnly}
+        mono={mono || editorKind === 'json'}
+        editorKind={editorKind}
+      />
+      <PromptTemplateLibraryModal
+        open={templateOpen}
+        initialKind={effectiveTemplateKind}
+        value={value || ''}
+        onApply={(nextValue) => {
+          commitValue(nextValue);
+        }}
+        onClose={() => {
+          setTemplateOpen(false);
+          window.setTimeout(() => textareaRef.current?.focus(), 0);
+        }}
+        isDark={isDark}
+        isPixel={isPixel}
+      />
+    </div>
+  );
+});
+
+export default PromptTextarea;

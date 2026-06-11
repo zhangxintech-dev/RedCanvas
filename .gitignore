@@ -1,0 +1,114 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Local reference/test artifacts that must not enter public release
+/public/vendor/js/three-0.160.0.module.js
+/upstream-jimeng-cli-issues-*.md
+/yolov8n.pt
+/_update-test/
+/src/assets/soccer-ball-cursor.svg
+/src/assets/soccer-ball.svg
+/src/assets/soccer-jersey-10.svg
+
+# Electron 打包产物与中间产物 (不上传仓库)
+dist_electron/
+build/
+*.tsbuildinfo
+
+# Electron 历史残留 .js 空文件 (已改用 .cjs)
+electron/*.js
+
+# 临时备份文件
+_temp_*
+# AI agent / shell 临时脚本与日志
+_*.ps1
+_*.txt
+_*.log
+_preview_*.svg
+
+# Local project operating manual and planning notes (do not publish)
+/skill.md
+/roadmap.md
+/local-private/**
+
+# Local-only developer tool builders. Keep these in the maintainer workspace
+# or private encrypted packaging path; never publish their source to GitHub.
+/src/components/nodes/RHToolboxMakerNode.tsx
+/src/components/nodes/FalToolboxMakerNode.tsx
+/src/utils/rhToolboxDeveloper.ts
+/src/utils/falToolboxDeveloper.ts
+
+# Local-only private billing/recharge overlay. Public GitHub releases must not
+# contain these modules, routes, UI components, or private patch files.
+/backend/src/routes/recharge.js
+/src/components/R[e]charge*.tsx
+/src/private/recharge/**
+/backend/src/private/recharge/**
+/private/recharge/**
+/local-private/recharge/**
+/recharge.private.*
+
+# Local reference copy of external SS_tools project (do not publish binaries/assets)
+/SS_tools/
+
+# Optional remove-ai-watermarks Python/Torch sidecar runtime.
+# Keep the slot docs, but never commit the multi-GB runtime itself.
+/tools/remove-ai-watermarks-runtime/**
+!/tools/remove-ai-watermarks-runtime/
+!/tools/remove-ai-watermarks-runtime/README.md
+
+# Local ParseHub upstream clone and generated Python dependency target.
+# Keep bridge/docs tracked; refresh dependencies locally before Electron release builds.
+/ParseHub/
+/tools/parsehub-pythonlibs/**
+!/tools/parsehub-pythonlibs/
+!/tools/parsehub-pythonlibs/README.md
+
+# Generated Electron runtime archives. Built locally by npm run prepack:runtimes;
+# shipped via extraResources, never committed to Git.
+/tools/runtime-archives/**
+!/tools/runtime-archives/
+!/tools/runtime-archives/README.md
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Backend data(本地数据,不入库)
+data/
+!src/data/
+!src/data/**
+input/
+output/
+thumbnails/
+userdata/
+backend/data/
+**/recharge.private.json
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+
+# Local tool state / test artifacts
+.omc/
+_test_body.json

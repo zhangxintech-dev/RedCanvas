@@ -1,0 +1,3727 @@
+/* 像素风主题(可切换) - @import 必须置顶 */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+@import './theme-pixel.css';
+@import './theme-core.css';
+@import './theme-op.css';
+@import './theme-rh.css';
+@import './theme-naruto.css';
+@import './theme-eva.css';
+@import './theme-yyh.css';
+@import './theme-slamdunk.css';
+@import './theme-soccer.css';
+@import './theme-dragonball.css';
+@import './theme-saintseiya.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RH工具箱应用按钮必须避开强主题的全局节点按钮覆盖。 */
+html[data-theme-template] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button,
+html[data-theme-style] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button,
+html[data-theme-visual] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button,
+.react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button {
+  width: 100% !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 28px 0 8px !important;
+  border: 1px solid var(--rh-toolbox-app-border, var(--t8-border, rgba(0, 0, 0, .18))) !important;
+  border-radius: 6px !important;
+  background: var(--rh-toolbox-app-bg, var(--t8-bg-panel-elevated, #fff7ed)) !important;
+  color: var(--rh-toolbox-app-text, var(--t8-text-main, #111827)) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease !important;
+}
+
+html[data-theme-template] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button:hover,
+html[data-theme-style] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button:hover,
+html[data-theme-visual] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button:hover,
+.react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-button:hover {
+  background: var(--rh-toolbox-app-hover-bg, var(--t8-bg-panel-muted, #f8fafc)) !important;
+  color: var(--rh-toolbox-app-text, var(--t8-text-main, #111827)) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html[data-theme-template] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-edit-button,
+html[data-theme-style] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-edit-button,
+html[data-theme-visual] .react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-edit-button,
+.react-flow__node .rh-toolbox-app-grid button.rh-toolbox-app-edit-button {
+  position: absolute !important;
+  top: 50% !important;
+  right: 4px !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: 1px solid var(--rh-toolbox-app-border, var(--t8-border, rgba(0, 0, 0, .18))) !important;
+  border-radius: 5px !important;
+  background: var(--rh-toolbox-app-bg, var(--t8-bg-panel-elevated, #fff7ed)) !important;
+  color: var(--rh-toolbox-app-text, var(--t8-text-main, #111827)) !important;
+  box-shadow: none !important;
+  transform: translateY(-50%) !important;
+}
+
+/* API settings semantic theme adapter */
+.t8-api-settings-modal {
+  background: color-mix(in srgb, var(--t8-bg-panel, #111827) 96%, transparent) !important;
+  border-color: var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.18))) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+  box-shadow: var(--t8-shadow-panel, 0 24px 68px rgba(0, 0, 0, 0.38)) !important;
+}
+
+.t8-api-settings-header,
+.t8-api-settings-footer {
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.16)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-header {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 92%, var(--t8-accent, #38bdf8) 8%), var(--t8-bg-panel, #111827)) !important;
+}
+
+.t8-api-settings-body {
+  background: color-mix(in srgb, var(--t8-bg-panel, #111827) 94%, transparent) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-footer {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 72%, transparent) !important;
+}
+
+.t8-api-settings-title,
+.t8-api-settings-label {
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-hint {
+  color: var(--t8-text-muted, rgba(248, 250, 252, 0.68)) !important;
+}
+
+.t8-api-settings-icon {
+  color: var(--t8-text-muted, rgba(248, 250, 252, 0.72)) !important;
+}
+
+.t8-api-settings-icon-btn,
+.t8-api-settings-secondary-btn,
+.t8-api-settings-action-btn {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 82%, transparent) !important;
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.14)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-primary-btn {
+  background: linear-gradient(180deg, var(--t8-accent-hover, #0ea5e9), var(--t8-accent, #38bdf8)) !important;
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+  color: var(--t8-accent-text, #031522) !important;
+  box-shadow: var(--t8-shadow-button, 0 10px 24px rgba(0, 0, 0, 0.24)) !important;
+}
+
+.t8-api-settings-primary-btn:hover {
+  filter: brightness(1.04);
+}
+
+.t8-api-settings-icon-btn:hover,
+.t8-api-settings-secondary-btn:hover,
+.t8-api-settings-action-btn:hover {
+  background: color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, var(--t8-bg-panel-elevated, #1f2937)) !important;
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+}
+
+.t8-api-settings-divider {
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.16)) !important;
+}
+
+.t8-api-settings-input {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 88%, transparent) !important;
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.16)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-input::placeholder {
+  color: var(--t8-text-dim, rgba(148, 163, 184, 0.72)) !important;
+}
+
+.t8-api-settings-input:focus {
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--t8-accent, #38bdf8) 22%, transparent) !important;
+}
+
+.t8-api-settings-toggle {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 88%, transparent) !important;
+  border-color: var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.18))) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+  min-width: 0;
+}
+
+.t8-api-settings-toggle:hover,
+.t8-api-settings-toggle[data-open="true"] {
+  background: color-mix(in srgb, var(--t8-accent, #38bdf8) 16%, var(--t8-bg-panel-elevated, #1f2937)) !important;
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+}
+
+.t8-api-settings-badge,
+.t8-api-settings-pill {
+  background: color-mix(in srgb, var(--t8-bg-panel-muted, #334155) 88%, transparent) !important;
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.16)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+  text-shadow: none !important;
+  white-space: nowrap;
+}
+
+.t8-api-settings-badge[data-tone="success"] {
+  background: color-mix(in srgb, var(--t8-success, #34d399) 24%, var(--t8-bg-panel-elevated, #1f2937)) !important;
+  border-color: color-mix(in srgb, var(--t8-success, #34d399) 58%, var(--t8-border, rgba(255, 255, 255, 0.16))) !important;
+}
+
+.t8-api-settings-badge[data-tone="muted"] {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 82%, transparent) !important;
+  color: var(--t8-text-muted, rgba(248, 250, 252, 0.68)) !important;
+}
+
+.t8-api-settings-provider-card {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 80%, transparent) !important;
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.16)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-provider-card:hover,
+.t8-api-settings-provider-card[data-active="true"] {
+  background: color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, var(--t8-bg-panel-elevated, #1f2937)) !important;
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+}
+
+.t8-api-settings-provider-panel,
+.t8-api-settings-section,
+.t8-api-settings-guide {
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.16)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+.t8-api-settings-provider-panel {
+  background: color-mix(in srgb, var(--t8-bg-panel, #111827) 92%, transparent) !important;
+}
+
+.t8-api-settings-section {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 84%, transparent) !important;
+}
+
+.t8-api-settings-guide {
+  background: color-mix(in srgb, var(--t8-warning, #f59e0b) 11%, var(--t8-bg-panel-elevated, #1f2937)) !important;
+  color: var(--t8-text-muted, rgba(248, 250, 252, 0.72)) !important;
+}
+
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-toggle,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-provider-card,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-icon-btn,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-secondary-btn,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-action-btn,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-primary-btn {
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-primary-btn {
+  background: linear-gradient(180deg, var(--t8-accent-hover, #0ea5e9), var(--t8-accent, #38bdf8)) !important;
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+  color: var(--t8-accent-text, #031522) !important;
+  box-shadow: var(--t8-shadow-button, 0 10px 24px rgba(0, 0, 0, 0.24)) !important;
+}
+
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-toggle,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-provider-card {
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #1f2937) 88%, transparent) !important;
+  border-color: var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.18))) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-toggle:hover,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-toggle[data-open="true"],
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-provider-card:hover,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-provider-card[data-active="true"] {
+  background: color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, var(--t8-bg-panel-elevated, #1f2937)) !important;
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8)) !important;
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-badge,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-pill,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-input,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-provider-panel,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-section,
+html[data-theme-template] .t8-api-settings-modal .t8-api-settings-guide {
+  color: var(--t8-text-main, #f8fafc) !important;
+}
+
+/* 「在线画布」推广浮层 下拉入场动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes t8ConnectionPanPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    box-shadow:
+      inset 0 0 0 2px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 78%, transparent),
+      inset 0 0 28px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 16%, transparent);
+  }
+  50% {
+    opacity: 0.95;
+    box-shadow:
+      inset 0 0 0 3px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 96%, transparent),
+      inset 0 0 52px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 28%, transparent);
+  }
+}
+
+@keyframes t8ConnectionPanDot {
+  0%,
+  100% {
+    transform: scale(0.75);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+
+/* Red Canvas 全局样式 */
+:root {
+  font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --t8-cut-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='%230f172a' stroke='%2338bdf8' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'><path d='M17 2 7 13h6l-3 9 10-12h-6l3-8Z'/><path d='M5 20 20 5'/></svg>") 14 14, crosshair;
+  --t8-cut-color: #38bdf8;
+  --t8-cut-track: rgba(56, 189, 248, 0.86);
+  --t8-cut-button-bg: #ffffff;
+  --t8-cut-button-fg: #ef4444;
+  --t8-cut-button-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M17 2 7 13h6l-3 9 10-12h-6l3-8Z'/></svg>");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Theme canvas contract:
+   - theme watermarks live on the shell background layer, never above nodes
+   - theme music and ReactFlow controls share one left rail and vertical stack */
+.t8-canvas-shell {
+  --t8-floating-control-left: 14px;
+  --t8-floating-control-bottom: 12px;
+  --t8-flow-controls-height: 132px;
+  --t8-floating-control-gap: 10px;
+  --t8-theme-music-size: 32px;
+  --t8-theme-music-left-offset: 0px;
+  --t8-flow-controls-bg: var(--t8-bg-panel, rgba(20, 20, 22, 0.92));
+  --t8-flow-controls-fg: var(--t8-text-main, #f4f4f5);
+  --t8-flow-controls-muted: var(--t8-text-muted, rgba(244, 244, 245, 0.58));
+  --t8-flow-controls-border: var(--t8-border, rgba(255, 255, 255, 0.14));
+  --t8-flow-controls-button-bg: color-mix(in srgb, var(--t8-bg-panel, #141416) 88%, transparent);
+  --t8-flow-controls-button-hover-bg: color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, var(--t8-bg-panel, #141416));
+  --t8-flow-controls-accent: var(--t8-accent, #38bdf8);
+  position: relative;
+  isolation: isolate;
+}
+
+.t8-canvas-shell::before,
+.t8-canvas-shell::after {
+  pointer-events: none;
+  z-index: 0;
+}
+
+html[data-theme-visual] .t8-canvas-shell::before,
+html[data-theme-visual] .t8-canvas-shell::after,
+.t8-canvas-shell[data-theme-visual]::before,
+.t8-canvas-shell[data-theme-visual]::after {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.t8-canvas-shell > .react-flow {
+  position: relative;
+  z-index: 2 !important;
+}
+
+.t8-canvas-shell .react-flow__background {
+  z-index: 0 !important;
+}
+
+.t8-canvas-shell .react-flow__edges {
+  z-index: 2 !important;
+}
+
+.t8-canvas-shell .react-flow__nodes {
+  z-index: 3 !important;
+}
+
+.t8-canvas-shell .react-flow__node {
+  isolation: isolate;
+  overflow: visible !important;
+}
+
+.t8-canvas-shell .react-flow__node > .react-flow__handle,
+.t8-canvas-shell .react-flow__node .react-flow__handle {
+  z-index: 60 !important;
+  pointer-events: all;
+}
+
+html[data-theme-visual] .t8-canvas-shell .react-flow__controls,
+.t8-canvas-shell[data-theme-visual] .react-flow__controls {
+  left: var(--t8-floating-control-left, 14px) !important;
+  bottom: var(--t8-floating-control-bottom, 12px) !important;
+}
+
+html[data-theme-visual] .t8-canvas-shell .t8-theme-music-toggle,
+.t8-canvas-shell[data-theme-visual] .t8-theme-music-toggle {
+  left: calc(var(--t8-floating-control-left, 14px) + var(--t8-theme-music-left-offset, 0px)) !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: calc(
+    var(--t8-floating-control-bottom, 12px) +
+    var(--t8-flow-controls-height, 132px) +
+    var(--t8-floating-control-gap, 10px)
+  ) !important;
+  width: var(--t8-theme-music-size, 32px) !important;
+  height: var(--t8-theme-music-size, 32px) !important;
+  min-width: var(--t8-theme-music-size, 32px) !important;
+  min-height: var(--t8-theme-music-size, 32px) !important;
+}
+
+.t8-control-rail {
+  position: absolute;
+  left: var(--t8-floating-control-left, 14px);
+  bottom: var(--t8-floating-control-bottom, 12px);
+  z-index: 22;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: var(--t8-floating-control-gap, 10px);
+  max-width: calc(100% - var(--t8-floating-control-left, 14px) - 14px);
+  pointer-events: none;
+}
+
+.t8-control-stack {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--t8-floating-control-gap, 10px);
+  pointer-events: all;
+}
+
+html[data-theme-visual] .t8-canvas-shell .t8-control-rail,
+.t8-canvas-shell[data-theme-visual] .t8-control-rail {
+  left: var(--t8-floating-control-left, 14px) !important;
+  bottom: var(--t8-floating-control-bottom, 12px) !important;
+}
+
+.t8-canvas-shell .t8-control-rail .t8-theme-music-toggle {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  flex: 0 0 auto !important;
+  z-index: auto !important;
+}
+
+html[data-theme-visual] .t8-canvas-shell .t8-control-rail .t8-theme-music-toggle,
+.t8-canvas-shell[data-theme-visual] .t8-control-rail .t8-theme-music-toggle {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  flex: 0 0 auto !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  flex: 0 0 auto !important;
+}
+
+html[data-theme-visual] .t8-canvas-shell .t8-control-rail .react-flow__controls,
+.t8-canvas-shell[data-theme-visual] .t8-control-rail .react-flow__controls {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  flex: 0 0 auto !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls {
+  overflow: hidden !important;
+  background: var(--t8-flow-controls-bg) !important;
+  border: 1px solid var(--t8-flow-controls-border) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--t8-shadow-button, 0 8px 22px rgba(0, 0, 0, 0.24)) !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button {
+  box-sizing: border-box !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--t8-flow-controls-button-bg) !important;
+  color: var(--t8-flow-controls-fg) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--t8-flow-controls-border) !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button:last-child {
+  border-bottom: 0 !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button svg [stroke] {
+  stroke: currentColor !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button svg [fill]:not([fill="none"]) {
+  fill: currentColor !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button:hover {
+  background: var(--t8-flow-controls-button-hover-bg) !important;
+  color: var(--t8-flow-controls-accent) !important;
+}
+
+.t8-canvas-shell .t8-control-rail .react-flow__controls-button:disabled {
+  color: var(--t8-flow-controls-muted) !important;
+  opacity: 0.5 !important;
+}
+
+.t8-placement-shelf {
+  flex: 0 1 auto;
+  align-self: flex-end;
+  width: max-content;
+  max-width: min(392px, calc(100vw - var(--t8-floating-control-left, 14px) - 78px));
+  pointer-events: all;
+}
+
+.t8-placement-shelf__grid {
+  max-width: 100%;
+}
+
+body.t8-file-drag-out-active,
+body.t8-file-drag-out-active * {
+  cursor: copy !important;
+}
+
+.t8-control-rail-help {
+  box-sizing: border-box;
+  width: var(--t8-theme-music-size, 32px);
+  height: var(--t8-theme-music-size, 32px);
+  min-width: var(--t8-theme-music-size, 32px);
+  min-height: var(--t8-theme-music-size, 32px);
+  padding: 0;
+  border: 1px solid var(--t8-flow-controls-border);
+  border-radius: 999px;
+  background: var(--t8-flow-controls-bg);
+  color: var(--t8-flow-controls-fg);
+  box-shadow: var(--t8-shadow-button, 0 8px 22px rgba(0, 0, 0, 0.24));
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.t8-control-rail-help:hover,
+.t8-control-rail-help.is-active {
+  background: var(--t8-flow-controls-button-hover-bg);
+  border-color: var(--t8-flow-controls-accent);
+  color: var(--t8-flow-controls-accent);
+  box-shadow:
+    var(--t8-shadow-button, 0 8px 22px rgba(0, 0, 0, 0.24)),
+    0 0 0 3px color-mix(in srgb, var(--t8-flow-controls-accent) 18%, transparent);
+}
+
+.t8-control-rail-help:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.t8-model-help-panel {
+  position: absolute;
+  left: calc(var(--t8-floating-control-left, 14px) + var(--t8-theme-music-size, 32px) + 14px);
+  bottom: var(--t8-floating-control-bottom, 12px);
+  z-index: 70;
+  width: min(760px, calc(100vw - var(--t8-floating-control-left, 14px) - 84px));
+  max-height: min(74vh, 680px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--t8-text-main, #f4f4f5);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--t8-bg-panel, #141416) 96%, var(--t8-accent, #38bdf8) 4%), var(--t8-bg-panel, #141416));
+  border: 1px solid color-mix(in srgb, var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.2))) 78%, var(--t8-accent, #38bdf8) 22%);
+  border-radius: var(--t8-radius-lg, 16px);
+  box-shadow: var(--t8-shadow-node, 0 22px 60px rgba(0, 0, 0, 0.42));
+}
+
+.t8-model-help-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, transparent), transparent);
+}
+
+.t8-model-help-panel__eyebrow {
+  margin-bottom: 4px;
+  color: var(--t8-accent, #38bdf8);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.t8-model-help-panel__header h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.t8-model-help-panel__close {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0;
+  border: 1px solid var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.2)));
+  border-radius: 999px;
+  color: var(--t8-text-main, #f4f4f5);
+  background: color-mix(in srgb, var(--t8-bg-panel, #141416) 88%, transparent);
+  cursor: pointer;
+}
+
+.t8-model-help-panel__close:hover {
+  color: var(--t8-accent, #38bdf8);
+  border-color: var(--t8-accent, #38bdf8);
+  background: var(--t8-flow-controls-button-hover-bg);
+}
+
+.t8-model-help-panel__body {
+  overflow: auto;
+  padding: 16px 18px 18px;
+}
+
+.t8-model-help-panel__text {
+  white-space: pre-wrap;
+  color: var(--t8-text-main, #f4f4f5);
+  font-size: 14px;
+  line-height: 1.78;
+}
+
+.t8-radial-settings-panel {
+  position: absolute;
+  left: calc(var(--t8-floating-control-left, 14px) + var(--t8-theme-music-size, 32px) + 14px);
+  bottom: var(--t8-floating-control-bottom, 12px);
+  z-index: 72;
+  width: min(760px, calc(100vw - var(--t8-floating-control-left, 14px) - 84px));
+  max-height: min(82vh, 740px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--t8-text-main, #f4f4f5);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--t8-bg-panel, #141416) 94%, var(--t8-flow-controls-accent, #38bdf8) 6%), var(--t8-bg-panel, #141416));
+  border: 1px solid color-mix(in srgb, var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.2))) 70%, var(--t8-flow-controls-accent, #38bdf8) 30%);
+  border-radius: 8px;
+  box-shadow: var(--t8-shadow-node, 0 22px 60px rgba(0, 0, 0, 0.42));
+}
+
+.t8-radial-settings-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 18%, transparent), transparent);
+}
+
+.t8-radial-settings-panel__eyebrow {
+  margin-bottom: 4px;
+  color: var(--t8-flow-controls-accent, #38bdf8);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.t8-radial-settings-panel__header h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 850;
+}
+
+.t8-radial-settings-panel__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.t8-radial-settings-panel__body {
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 16px 16px;
+}
+
+.t8-radial-settings-button,
+.t8-radial-settings-close,
+.t8-radial-settings-slot__moves button,
+.t8-radial-settings-delay__reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.2)));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--t8-bg-panel, #141416) 86%, transparent);
+  color: var(--t8-text-main, #f4f4f5);
+  cursor: pointer;
+}
+
+.t8-radial-settings-button {
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.t8-radial-settings-close {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+}
+
+.t8-radial-settings-button:hover,
+.t8-radial-settings-close:hover,
+.t8-radial-settings-slot__moves button:hover:not(:disabled),
+.t8-radial-settings-delay__reset:hover {
+  border-color: var(--t8-flow-controls-accent, #38bdf8);
+  background: var(--t8-flow-controls-button-hover-bg);
+  color: var(--t8-flow-controls-accent, #38bdf8);
+}
+
+.t8-radial-settings-delay {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(180px, 1.5fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 72%, transparent);
+}
+
+.t8-radial-settings-delay__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.t8-radial-settings-delay__meta strong {
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.t8-radial-settings-delay input[type="range"] {
+  width: 100%;
+  accent-color: var(--t8-flow-controls-accent, #38bdf8);
+}
+
+.t8-radial-settings-delay__reset {
+  min-height: 30px;
+  padding: 0 11px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.t8-radial-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.t8-radial-settings-slot {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 76%, transparent);
+  cursor: grab;
+}
+
+.t8-radial-settings-slot:active {
+  cursor: grabbing;
+}
+
+.t8-radial-settings-slot.is-disabled {
+  opacity: 0.62;
+}
+
+.t8-radial-settings-slot.is-drag-over {
+  border-color: var(--t8-flow-controls-accent, #38bdf8);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 18%, transparent);
+}
+
+.t8-radial-settings-slot__top,
+.t8-radial-settings-slot__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.t8-radial-settings-slot__index,
+.t8-radial-settings-slot__icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.t8-radial-settings-slot__index {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  color: var(--t8-accent-text, #031522);
+  background: var(--t8-flow-controls-accent, #38bdf8);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.t8-radial-settings-slot__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: var(--radial-slot-color, var(--t8-flow-controls-accent, #38bdf8));
+  background: color-mix(in srgb, var(--radial-slot-color, #38bdf8) 18%, var(--t8-bg-panel, #141416));
+  border: 1px solid color-mix(in srgb, var(--radial-slot-color, #38bdf8) 46%, transparent);
+}
+
+.t8-radial-settings-slot__title {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.t8-radial-settings-slot__title strong,
+.t8-radial-settings-slot__title small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-radial-settings-slot__title strong {
+  font-size: 13px;
+  line-height: 1.15;
+}
+
+.t8-radial-settings-slot__title small {
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+  font-size: 11px;
+}
+
+.t8-radial-settings-slot__controls select {
+  min-width: 0;
+  flex: 1 1 auto;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.2)));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--t8-bg-panel, #141416) 88%, transparent);
+  color: var(--t8-text-main, #f4f4f5);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.t8-radial-settings-slot__moves {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+}
+
+.t8-radial-settings-slot__moves button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+.t8-radial-settings-slot__moves button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.t8-radial-settings-switch {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.t8-radial-settings-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.t8-radial-settings-switch span {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--t8-border-strong, var(--t8-border, rgba(255, 255, 255, 0.2)));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--t8-bg-panel, #141416) 92%, transparent);
+}
+
+.t8-radial-settings-switch span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.t8-radial-settings-switch input:checked + span {
+  border-color: var(--t8-flow-controls-accent, #38bdf8);
+  background: color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 26%, var(--t8-bg-panel, #141416));
+}
+
+.t8-radial-settings-switch input:checked + span::after {
+  transform: translateX(18px);
+  background: var(--t8-flow-controls-accent, #38bdf8);
+}
+
+@media (max-width: 760px) {
+  .t8-radial-settings-panel {
+    left: var(--t8-floating-control-left, 14px);
+    right: 14px;
+    width: auto;
+  }
+
+  .t8-radial-settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .t8-radial-settings-delay {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === xyflow 内置保留 type 名防御 ===
+   xyflow 在 style.css 中会对 .react-flow__node-input / -output / -default / -group
+   这几个“内置节点类型”自动套上默认样式:
+     padding:10px; width:150px; background:#fff; border:1px solid #1a192b; 等。
+   我们项目用了 type="output" 作为节点类型名, 会被这些样式吞下去,
+   体现为节点周围多一圈白色矩形 + 额外边框 + 升 padding。
+   这里重置所有潜在被点名的名字, 避免主题什么都修不了。 */
+.react-flow__node-input,
+.react-flow__node-output,
+.react-flow__node-default,
+.react-flow__node-group {
+  padding: 0 !important;
+  width: auto !important;
+  font-size: inherit !important;
+  color: inherit !important;
+  text-align: left !important;
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.react-flow__node-input.selectable:hover,
+.react-flow__node-output.selectable:hover,
+.react-flow__node-default.selectable:hover,
+.react-flow__node-group.selectable:hover,
+.react-flow__node-input.selectable.selected,
+.react-flow__node-output.selectable.selected,
+.react-flow__node-default.selectable.selected,
+.react-flow__node-group.selectable.selected {
+  box-shadow: none !important;
+}
+
+/* === 科技风浅色 legacy node adapter ===
+   早期节点里仍有硬编码的深色 Tailwind class / inline background。
+   科技风浅色也必须像官方强风格主题一样统一兜底，否则会出现部分节点仍是黑卡片。 */
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) > div:first-child {
+  background: var(--t8-bg-node) !important;
+  color: var(--t8-text-main) !important;
+  border-color: var(--t8-border) !important;
+  box-shadow: var(--t8-shadow-panel) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="border-b"] {
+  border-color: var(--t8-border) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class~="text-white"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/80"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/90"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-zinc-100"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-zinc-200"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-neutral-100"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-slate-100"] {
+  color: var(--t8-text-main) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/60"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/70"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-zinc-300"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-zinc-400"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-neutral-300"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-slate-300"] {
+  color: var(--t8-text-muted) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/20"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/30"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/40"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-white/50"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-zinc-500"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-neutral-400"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-slate-400"] {
+  color: var(--t8-text-dim) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-cyan-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-sky-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-blue-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-emerald-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-green-"] {
+  color: var(--t8-accent-hover) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-amber-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="text-yellow-"] {
+  color: var(--t8-warning) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-white/5"]:not(input):not(textarea):not(select),
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-white/10"]:not(input):not(textarea):not(select),
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-zinc-900"]:not(input):not(textarea):not(select):not(img):not(video):not(canvas),
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-zinc-950"]:not(input):not(textarea):not(select):not(img):not(video):not(canvas),
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-neutral-900"]:not(input):not(textarea):not(select):not(img):not(video):not(canvas),
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-slate-900"]:not(input):not(textarea):not(select):not(img):not(video):not(canvas),
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="bg-black/"]:not(input):not(textarea):not(select):not(img):not(video):not(canvas) {
+  background-color: var(--t8-bg-panel-muted) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="border-white/"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="border-cyan-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="border-sky-"],
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) [class*="border-blue-"] {
+  border-color: var(--t8-border-strong) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) input,
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) select,
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) textarea {
+  background: color-mix(in srgb, var(--t8-bg-panel) 92%, var(--t8-accent) 3%) !important;
+  border-color: var(--t8-border) !important;
+  color: var(--t8-text-main) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) input::placeholder,
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) textarea::placeholder {
+  color: var(--t8-text-dim) !important;
+}
+
+html[data-theme-visual="tech"][data-theme-mode="light"] .react-flow__node:not(.react-flow__node-groupBox) option {
+  background: var(--t8-bg-panel) !important;
+  color: var(--t8-text-main) !important;
+}
+
+/* 隐藏滚动条 */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* v1.3.4 资源库卡片: 悬停放大素材预览,不改变卡片布局 */
+.resource-card:hover .resource-media {
+  transform: scale(1.08);
+}
+.resource-card {
+  transform-origin: center;
+}
+.resource-card:hover {
+  transform: translateY(-1px);
+}
+
+.resource-card-preview-trigger {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 6;
+  inline-size: 28px !important;
+  block-size: 28px !important;
+  min-inline-size: 28px !important;
+  min-block-size: 28px !important;
+  padding: 0 !important;
+  border: 1px solid var(--t8-border-strong, rgba(255, 255, 255, 0.32));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--t8-bg-panel, #111827) 72%, transparent);
+  color: var(--t8-text-main, #f8fafc);
+  box-shadow: var(--t8-shadow-button, 0 8px 20px rgba(0, 0, 0, 0.26));
+  opacity: 0;
+  transform: translateY(-3px) scale(0.92);
+  transition: opacity 160ms ease, transform 160ms ease, background 160ms ease, color 160ms ease;
+  backdrop-filter: blur(8px);
+}
+
+.resource-library-drawer .resource-card .resource-card-preview-trigger {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  inline-size: 28px !important;
+  block-size: 28px !important;
+  min-inline-size: 28px !important;
+  min-block-size: 28px !important;
+}
+
+.resource-card:hover .resource-card-preview-trigger,
+.resource-card-preview-trigger:hover,
+.resource-card-preview-trigger:focus-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.resource-card-preview-trigger:hover,
+.resource-card-preview-trigger:focus-visible {
+  background: var(--t8-accent, #38bdf8);
+  color: var(--t8-accent-text, #031522);
+}
+
+.resource-card-image-hover-preview {
+  position: fixed;
+  z-index: 80;
+  width: min(320px, calc(100vw - 24px));
+  max-height: min(380px, calc(100vh - 24px));
+  overflow: hidden;
+  padding: 8px;
+  border: 1px solid var(--t8-border-strong, rgba(255, 255, 255, 0.18));
+  border-radius: 10px;
+  background: var(--t8-bg-panel-elevated, var(--t8-bg-panel, #111827));
+  color: var(--t8-text-main, #f8fafc);
+  box-shadow: var(--t8-shadow-panel, 0 18px 50px rgba(0, 0, 0, 0.38));
+  pointer-events: none;
+}
+
+.resource-card-image-hover-preview img {
+  display: block;
+  width: 100%;
+  max-height: 324px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #050505;
+}
+
+.resource-card-image-hover-preview__title {
+  margin-top: 6px;
+  overflow: hidden;
+  color: var(--t8-text-muted, rgba(248, 250, 252, 0.72));
+  font-size: 11px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 极细无感滚动条(科技风) */
+.react-flow__node ::-webkit-scrollbar,
+.react-flow__node *::-webkit-scrollbar {
+  width: 2px !important;
+  height: 2px !important;
+}
+.react-flow__node ::-webkit-scrollbar-track,
+.react-flow__node *::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+.react-flow__node ::-webkit-scrollbar-thumb,
+.react-flow__node *::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 9999px !important;
+}
+.react-flow__node ::-webkit-scrollbar-thumb:hover,
+.react-flow__node *::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.3) !important;
+}
+.react-flow__node ::-webkit-scrollbar-button,
+.react-flow__node *::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.react-flow__node,
+.react-flow__node * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
+}
+
+/* === xyflow Handle 交互优化 === */
+/* 1. 默认光标从 grab(手掌) 改为 crosshair(十字准星),
+      更直观地提示「拖拽连线」动作 (与拖动节点本体区分开) */
+.react-flow__handle {
+  cursor: crosshair !important;
+}
+.react-flow__handle:hover {
+  /* hover 亦保持 crosshair, 避免 xyflow 内置 :hover 样式反转为 grab */
+  cursor: crosshair !important;
+}
+/* 2. 扩大 hit area: 透明 ::before 伪元素定位到四周外扩 8px,
+      接收鼠标事件 (点击 / hover / 拖拽起点), 视觉 handle 本体不变
+      (.react-flow__handle 本身已是 position:absolute, 伪元素以其为定位基准) */
+.react-flow__handle::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 9999px;
+  background: transparent;
+  /* 不设 pointer-events: 默认继承 auto, 与本体一起接收事件 */
+}
+
+/* === SHIFT 批量移线交互反馈 === */
+/* 按住 SHIFT 时,所有 handle 显示 grab 光标,提示可批量拖拽迁移连线 */
+body.shift-mode .react-flow__handle {
+  cursor: grab !important;
+}
+body.shift-mode .react-flow__handle:active,
+body.bulk-reconnecting,
+body.bulk-reconnecting * {
+  cursor: grabbing !important;
+}
+/* 拖拽期间高亮其他可作为目标的同类型 handle */
+body.bulk-reconnecting .react-flow__handle {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+}
+
+/* === 拖线中 Space 连线导航模式 === */
+body.connection-pan-mode,
+body.connection-pan-mode .react-flow__pane,
+body.connection-pan-mode .react-flow__selectionpane {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+
+.t8-canvas-shell.connection-pan-mode-active .react-flow__pane::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  z-index: 8;
+  border-radius: 18px;
+  pointer-events: none;
+  animation: t8ConnectionPanPulse 1.35s ease-in-out infinite;
+}
+
+.t8-connection-pan-hud {
+  position: absolute;
+  left: 50%;
+  top: 76px;
+  z-index: 55;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(560px, calc(100% - 32px));
+  padding: 9px 13px;
+  border: 1px solid color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 70%, var(--t8-flow-controls-border, transparent));
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 18%, transparent),
+      transparent 38%),
+    color-mix(in srgb, var(--t8-flow-controls-bg, rgba(20, 20, 22, 0.92)) 92%, transparent);
+  color: var(--t8-flow-controls-fg, #f4f4f5);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.28),
+    0 0 0 4px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 12%, transparent),
+    inset 0 0 22px color-mix(in srgb, var(--t8-flow-controls-accent, #38bdf8) 10%, transparent);
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+.t8-connection-pan-hud__signal {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--t8-flow-controls-accent, #38bdf8);
+  box-shadow: 0 0 18px var(--t8-flow-controls-accent, #38bdf8);
+  animation: t8ConnectionPanDot 1.1s ease-in-out infinite;
+}
+
+.t8-connection-pan-hud__title {
+  flex: 0 0 auto;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.t8-connection-pan-hud__hint {
+  min-width: 0;
+  color: var(--t8-flow-controls-muted, rgba(244, 244, 245, 0.66));
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === SHIFT 剩刀划线断连模式 === */
+/* 预览态(仅按住 SHIFT, 未拖动): 在画布空白 / GroupBoxNode 本体 光标预点为剩刀,
+   让用户一眼看出「在这里拖动可划断连线」, 避免默认 grab 手掌误导为 panning */
+body.shift-mode .react-flow__pane {
+  cursor: var(--t8-cut-cursor, crosshair) !important;
+}
+body.shift-mode .react-flow__node-groupBox {
+  cursor: var(--t8-cut-cursor, crosshair) !important;
+}
+/* 组节点内交互元素 SHIFT 期间仍保持各自语义光标, 避免被剩刀覆盖 */
+body.shift-mode .react-flow__node-groupBox button {
+  cursor: pointer !important;
+}
+body.shift-mode .react-flow__node-groupBox input,
+body.shift-mode .react-flow__node-groupBox textarea,
+body.shift-mode .react-flow__node-groupBox [contenteditable="true"] {
+  cursor: text !important;
+}
+/* 实际拖动后进入 cut-mode, 全局全接管为剩刀(下面原规则) */
+/* 触发: SHIFT + 画布空白 / GroupBoxNode 空白 左键拖动
+   - body.cut-mode 期间全局光标变为剩刀(双主题不同颜色)
+   - .cut-marked 表示被划过的 edge, 红色高亮预览
+   - .cut-overlay-svg/cut-overlay-path 为临时轨迹覆盖层 */
+body.cut-mode,
+body.cut-mode * {
+  cursor: var(--t8-cut-cursor, crosshair) !important;
+  user-select: none !important;
+}
+/* 待切 edge 高亮(主路径变红 + 变粗 + 虚线) */
+.react-flow__edge.cut-marked .react-flow__edge-path {
+  stroke: var(--t8-cut-color, #ef4444) !important;
+  stroke-width: 3.2 !important;
+  stroke-dasharray: 6 4 !important;
+  opacity: 0.9 !important;
+}
+/* cut-mode 全局加宽未选中 edge 的 stroke 及命中区, 避免黑色细线快速划动跳过 */
+body.cut-mode .react-flow__edge .react-flow__edge-path {
+  stroke-width: 3.5 !important;
+}
+body.cut-mode .react-flow__edge .react-flow__edge-interaction {
+  stroke-width: 36 !important;
+}
+/* 轨迹 SVG overlay (鼠标划过的轨迹, 红色虚线) */
+.cut-overlay-svg .cut-overlay-path {
+  stroke: var(--t8-cut-track, rgba(239, 68, 68, 0.85));
+  stroke-width: 2.5;
+  stroke-dasharray: 6 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.t8-edge-cut-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--t8-cut-button-bg, #ffffff);
+  border: 1.5px solid var(--t8-cut-button-fg, #ef4444);
+  color: var(--t8-cut-button-fg, #ef4444);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  padding: 0;
+  transition: transform 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.t8-edge-cut-button:hover {
+  background: var(--t8-cut-button-fg, #ef4444);
+  color: var(--t8-cut-button-bg, #ffffff);
+  transform: scale(1.15);
+}
+
+.t8-edge-cut-glyph {
+  width: 15px;
+  height: 15px;
+  display: block;
+  background: currentColor;
+  -webkit-mask: var(--t8-cut-button-mask) center / contain no-repeat;
+  mask: var(--t8-cut-button-mask) center / contain no-repeat;
+}
+
+.t8-edge-theme-marker {
+  display: none;
+}
+
+.t8-edge-pass-ball {
+  display: none;
+  pointer-events: none;
+}
+
+.t8-edge-soccer-ball {
+  display: none;
+  pointer-events: none;
+}
+
+html[data-t8-edge-motion="reduced"] .react-flow__edge-path,
+html[data-t8-edge-motion="reduced"] .react-flow__connection-path,
+html[data-t8-edge-motion="reduced"] .t8-edge-yyh-red-segment,
+.t8-canvas-shell.t8-edge-motion-reduced .react-flow__edge-path,
+.t8-canvas-shell.t8-edge-motion-reduced .react-flow__connection-path,
+.t8-canvas-shell.t8-edge-motion-reduced .t8-edge-yyh-red-segment {
+  animation: none !important;
+  filter: none !important;
+}
+
+html[data-t8-edge-motion="reduced"] .t8-edge-pass-ball,
+html[data-t8-edge-motion="reduced"] .t8-edge-soccer-ball,
+.t8-canvas-shell.t8-edge-motion-reduced .t8-edge-pass-ball,
+.t8-canvas-shell.t8-edge-motion-reduced .t8-edge-soccer-ball {
+  display: none !important;
+}
+
+.t8-canvas-shell.t8-viewport-moving .react-flow__node,
+.t8-canvas-shell.t8-node-dragging .react-flow__node {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .react-flow__edge-path,
+  .react-flow__connection-path,
+  .t8-edge-yyh-red-segment {
+    animation: none !important;
+    filter: none !important;
+  }
+
+  .t8-edge-pass-ball,
+  .t8-edge-soccer-ball {
+    display: none !important;
+  }
+}
+
+/* === 批量移线 phantom 节点(透明锚点) === */
+.react-flow__node-bulkPhantom {
+  width: 1px !important;
+  height: 1px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+  opacity: 0;
+}
+
+/* === 图像编辑弹窗 (ImageEditModal) === */
+/* OutputNode 中图片双击 → 裁剪 / 宫格切分 弹窗
+   科技风默认样式; 像素风升级在 theme-pixel.css */
+.img-edit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: img-edit-fade-in 0.18s ease-out;
+}
+@keyframes img-edit-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.img-edit-modal {
+  width: min(1280px, 94vw);
+  height: min(860px, 94vh);
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.img-edit-stage {
+  /* 滚动条美化, 长图也能查看 */
+  scrollbar-width: thin;
+}
+.img-edit-stage .crop-box {
+  user-select: none;
+  touch-action: none;
+}
+.img-edit-stage .crop-handle {
+  user-select: none;
+  touch-action: none;
+  z-index: 2;
+}
+
+/* mask / brush 画布 overlay (由 ImageEditModal 内联 style 控制位置，这里仅安全兑底) */
+.img-edit-stage .img-edit-draw {
+  user-select: none;
+  touch-action: none;
+  z-index: 2;
+}
+.img-edit-stage[data-mode="mask"] .img-edit-draw,
+.img-edit-stage[data-mode="brush"] .img-edit-draw {
+  z-index: 3;
+}
+/* 笔刷跟随圈 (由内联 style 控制色/尺寸，CSS 仅保证层级) */
+.img-edit-stage .img-edit-cursor {
+  z-index: 4;
+}
+
+/* ===========================================
+ * 节点四角同比例缩放 handle (ResizableCorners.tsx 配套)
+ *
+ * 设计:
+ *   - 仅 4 角, 不显示边线 handle (组件本身就只渲染 4 个 NodeResizeControl)
+ *   - 默认透明度 0.45 低调存在, 节点 hover/handle hover 时高亮
+ *   - 4 套主题: 科技深/科技浅/像素深/像素浅, 视觉与各自主题语言一致
+ *   - 同比例缩放由 NodeResizeControl 的 keepAspectRatio 保证 (拖任意角)
+ * =========================================== */
+.react-flow__resize-control.handle.t8-resize-handle {
+  width: 14px !important;
+  height: 14px !important;
+  /* 基础重置: 让具体主题类决定外观 */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  z-index: 22;
+  opacity: 0.5;
+  transition: opacity 0.14s ease, transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+  /* 命中区域放大 (避免精准命中难) — 利用伪元素扩展 8px hit-box, 但视觉仍 14x14 */
+  position: absolute;
+}
+.react-flow__resize-control.handle.t8-resize-handle::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+/* 节点选中后整体出现, 鼠标在节点上时全部 4 个角更明显 */
+.react-flow__node.selected:hover .react-flow__resize-control.handle.t8-resize-handle {
+  opacity: 0.85;
+}
+.react-flow__resize-control.handle.t8-resize-handle:hover {
+  opacity: 1;
+  transform: scale(1.18);
+}
+
+/* --- 科技风 · 浅色 --- */
+.t8-resize-handle--tech-light {
+  background: #ffffff;
+  border: 1.5px solid var(--t8-resize-accent, #0ea5e9);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+}
+.t8-resize-handle--tech-light:hover {
+  background: var(--t8-resize-accent, #0ea5e9);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--t8-resize-accent, #0ea5e9) 22%, transparent),
+    0 2px 10px color-mix(in srgb, var(--t8-resize-accent, #0ea5e9) 55%, transparent);
+}
+
+/* --- 科技风 · 深色 --- */
+.t8-resize-handle--tech-dark {
+  background: #0a0a0b;
+  border: 1.5px solid var(--t8-resize-accent, #38bdf8);
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.55), 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.t8-resize-handle--tech-dark:hover {
+  background: var(--t8-resize-accent, #38bdf8);
+  border-color: #ffffff;
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--t8-resize-accent, #38bdf8) 30%, transparent),
+    0 2px 12px color-mix(in srgb, var(--t8-resize-accent, #38bdf8) 65%, transparent);
+}
+
+/* --- 像素风 · 浅色 (糖果色 + 黑描边 + 硬阴影) --- */
+.t8-resize-handle--pixel-light {
+  background: var(--px-yellow, #FFE08A);
+  border: 2px solid var(--px-ink, #1A1410);
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 var(--px-ink, #1A1410);
+  width: 13px !important;
+  height: 13px !important;
+}
+.t8-resize-handle--pixel-light:hover {
+  background: var(--px-pink-deep, #FF89A7);
+  box-shadow: 3px 3px 0 var(--px-ink, #1A1410);
+}
+/* 像素风 4 角对应的阴影方向 (硬阴影朝外才好看): 右下角默认 OK, 其余 3 角微调 */
+.t8-resize-handle--pixel-light.t8-resize-handle--top-left {
+  box-shadow: -2px -2px 0 var(--px-ink, #1A1410);
+}
+.t8-resize-handle--pixel-light.t8-resize-handle--top-left:hover {
+  box-shadow: -3px -3px 0 var(--px-ink, #1A1410);
+}
+.t8-resize-handle--pixel-light.t8-resize-handle--top-right {
+  box-shadow: 2px -2px 0 var(--px-ink, #1A1410);
+}
+.t8-resize-handle--pixel-light.t8-resize-handle--top-right:hover {
+  box-shadow: 3px -3px 0 var(--px-ink, #1A1410);
+}
+.t8-resize-handle--pixel-light.t8-resize-handle--bottom-left {
+  box-shadow: -2px 2px 0 var(--px-ink, #1A1410);
+}
+.t8-resize-handle--pixel-light.t8-resize-handle--bottom-left:hover {
+  box-shadow: -3px 3px 0 var(--px-ink, #1A1410);
+}
+
+/* --- 像素风 · 深色 (反相: 浅色块 + 浅描边) --- */
+.t8-resize-handle--pixel-dark {
+  background: var(--px-yellow, #E5C462);
+  border: 2px solid var(--px-ink, #F5EBD7);
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 var(--px-ink, #F5EBD7);
+  width: 13px !important;
+  height: 13px !important;
+}
+.t8-resize-handle--pixel-dark:hover {
+  background: var(--px-pink, #FF89A7);
+  box-shadow: 3px 3px 0 var(--px-ink, #F5EBD7);
+}
+.t8-resize-handle--pixel-dark.t8-resize-handle--top-left {
+  box-shadow: -2px -2px 0 var(--px-ink, #F5EBD7);
+}
+.t8-resize-handle--pixel-dark.t8-resize-handle--top-left:hover {
+  box-shadow: -3px -3px 0 var(--px-ink, #F5EBD7);
+}
+.t8-resize-handle--pixel-dark.t8-resize-handle--top-right {
+  box-shadow: 2px -2px 0 var(--px-ink, #F5EBD7);
+}
+.t8-resize-handle--pixel-dark.t8-resize-handle--top-right:hover {
+  box-shadow: 3px -3px 0 var(--px-ink, #F5EBD7);
+}
+.t8-resize-handle--pixel-dark.t8-resize-handle--bottom-left {
+  box-shadow: -2px 2px 0 var(--px-ink, #F5EBD7);
+}
+.t8-resize-handle--pixel-dark.t8-resize-handle--bottom-left:hover {
+  box-shadow: -3px 3px 0 var(--px-ink, #F5EBD7);
+}
+
+/* OP 模板最终覆盖：放在 Tailwind utilities 之后，兜住节点里带 !border-0 的 Handle。 */
+html[data-theme-visual="op"] .react-flow__handle {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  border: 3px double var(--op-ink) !important;
+  border-radius: 999px !important;
+  background: var(--op-gold) !important;
+  box-shadow:
+    1px 1px 0 var(--op-ink),
+    0 0 0 5px color-mix(in srgb, var(--op-gold) 22%, transparent) !important;
+}
+
+html[data-theme-visual="op"] .react-flow__handle.target {
+  background: var(--op-ocean) !important;
+  box-shadow:
+    1px 1px 0 var(--op-ink),
+    0 0 0 5px color-mix(in srgb, var(--op-ocean) 24%, transparent) !important;
+}
+
+html[data-theme-visual="op"] .react-flow__handle.source {
+  background: var(--op-red) !important;
+  box-shadow:
+    1px 1px 0 var(--op-ink),
+    0 0 0 5px color-mix(in srgb, var(--op-red) 22%, transparent) !important;
+}
+
+html[data-theme-visual="op"] .t8-group-box__handle {
+  position: absolute !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  right: -13px !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 50% 50%, var(--op-paper) 0 34%, transparent 35%),
+    var(--op-red) !important;
+  transform: translateY(-50%) !important;
+  z-index: 2147483000 !important;
+  pointer-events: all !important;
+}
+
+/* 主题模板默认音乐按钮：默认静音，用户点击后才播放。 */
+.t8-theme-music-toggle {
+  position: absolute;
+  left: calc(var(--t8-floating-control-left, 14px) + var(--t8-theme-music-left-offset, 0px));
+  bottom: calc(
+    var(--t8-floating-control-bottom, 12px) +
+    var(--t8-flow-controls-height, 132px) +
+    var(--t8-floating-control-gap, 10px)
+  );
+  z-index: 12;
+  width: var(--t8-theme-music-size, 32px);
+  height: var(--t8-theme-music-size, 32px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0)),
+    var(--t8-bg-panel, rgba(20, 20, 22, 0.92));
+  color: var(--t8-text-main, #f4f4f5);
+  box-shadow: var(--t8-shadow-button, 0 6px 16px rgba(0, 0, 0, 0.22));
+  cursor: pointer;
+  pointer-events: all;
+  transition:
+    transform 140ms ease,
+    color 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.t8-theme-music-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+.t8-theme-music-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8));
+  color: var(--t8-accent, #38bdf8);
+  box-shadow:
+    var(--t8-shadow-button, 0 8px 22px rgba(0, 0, 0, 0.26)),
+    0 0 0 4px color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, transparent);
+}
+
+.t8-theme-music-toggle.is-playing {
+  background: var(--t8-accent, #38bdf8);
+  color: var(--t8-accent-text, #031522);
+  border-color: var(--t8-border-strong, var(--t8-accent, #38bdf8));
+}
+
+.t8-theme-music-toggle.is-playing svg {
+  animation: t8-theme-music-spin 2.4s linear infinite;
+}
+
+@keyframes t8-theme-music-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.t8-mini-icon-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+.t8-mini-icon-button svg {
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+.panorama-avatar-overlay-toggle {
+  box-shadow: none !important;
+}
+
+.panorama-avatar-overlay-toggle.is-active {
+  border-color: var(--t8-border-strong);
+  background: var(--t8-accent);
+  color: var(--t8-accent-text);
+  box-shadow: none !important;
+}
+
+.panorama-avatar-overlay-toggle.is-active:hover {
+  background: var(--t8-accent-hover);
+}
+
+.t8-image-preview-trigger {
+  border-color: color-mix(in srgb, var(--t8-border-strong, #38bdf8) 72%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 88%, transparent), color-mix(in srgb, var(--t8-bg-panel, #020617) 92%, transparent));
+  color: var(--t8-accent, #38bdf8);
+  backdrop-filter: blur(8px);
+}
+
+.t8-image-preview-trigger:hover,
+.t8-image-preview-trigger:focus-visible {
+  border-color: var(--t8-accent, #38bdf8);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--t8-accent, #38bdf8) 24%, var(--t8-bg-panel-elevated, #111827)), var(--t8-bg-panel-elevated, #111827));
+  color: var(--t8-accent, #38bdf8);
+  box-shadow:
+    var(--t8-shadow-button, 0 8px 22px rgba(0, 0, 0, 0.26)),
+    0 0 0 3px color-mix(in srgb, var(--t8-accent, #38bdf8) 24%, transparent);
+}
+
+.t8-image-preview-popover {
+  position: fixed;
+  z-index: 9500;
+  overflow: hidden;
+  pointer-events: none;
+  border: 1px solid var(--t8-border-strong, var(--t8-border, #334155));
+  border-radius: min(var(--t8-radius-panel, 12px), 12px);
+  background: var(--t8-bg-panel-elevated, #0f172a);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--t8-accent, #38bdf8) 24%, transparent),
+    0 18px 48px rgba(0, 0, 0, 0.36);
+}
+
+.t8-image-preview-popover__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.t8-node-serial-badge {
+  --t8-node-serial-offset-x: 9px;
+  --t8-node-serial-offset-y: -10px;
+  position: absolute;
+  top: var(--t8-node-serial-anchor-top, 0px);
+  left: var(--t8-node-serial-anchor-left, 100%);
+  right: auto;
+  transform: translate(calc(-100% + var(--t8-node-serial-offset-x)), var(--t8-node-serial-offset-y));
+  z-index: 62;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  max-width: 58px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--t8-accent, #38bdf8) 62%, transparent);
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 88%, transparent);
+  color: var(--t8-accent, #38bdf8);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--t8-bg-canvas, transparent) 70%, transparent),
+    0 6px 14px rgba(0, 0, 0, 0.28);
+}
+
+.react-flow__node.t8-nearest-node-pulse {
+  z-index: 1000 !important;
+}
+
+.react-flow__node.t8-nearest-node-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 2px solid var(--t8-accent, #38bdf8);
+  border-radius: 18px;
+  pointer-events: none;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--t8-accent, #38bdf8) 44%, transparent);
+  animation: t8-nearest-node-pulse 1.15s ease-out both;
+}
+
+@keyframes t8-nearest-node-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--t8-accent, #38bdf8) 46%, transparent);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+    box-shadow: 0 0 0 14px color-mix(in srgb, var(--t8-accent, #38bdf8) 0%, transparent);
+  }
+}
+
+.t8-context-menu {
+  background: var(--t8-context-menu-bg, color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 96%, transparent));
+  color: var(--t8-text-main, #f8fafc);
+  border: var(--t8-context-menu-border, 1.5px solid var(--t8-border-strong, rgba(255, 255, 255, 0.16)));
+  border-radius: var(--t8-context-menu-radius, 10px);
+  box-shadow: var(--t8-context-menu-shadow, var(--t8-shadow-panel, 0 18px 50px rgba(0, 0, 0, 0.36)));
+  backdrop-filter: var(--t8-context-menu-backdrop, blur(10px));
+}
+
+.t8-context-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--t8-context-menu-header-text, var(--t8-text-main, #f8fafc));
+  background: var(--t8-context-menu-header-bg, color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, var(--t8-bg-panel, #111827)));
+  border-bottom: var(--t8-context-menu-divider, 1px solid var(--t8-border, rgba(255, 255, 255, 0.12)));
+}
+
+.t8-context-menu__item {
+  width: 100%;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--t8-context-menu-item-text, var(--t8-text-main, #f8fafc));
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, opacity 0.12s ease;
+}
+
+.t8-context-menu__item:hover:not(:disabled),
+.t8-context-menu__item:focus-visible:not(:disabled) {
+  outline: none;
+  background: var(--t8-context-menu-item-hover, color-mix(in srgb, var(--t8-accent, #38bdf8) 18%, transparent));
+}
+
+.t8-context-menu__item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.t8-context-menu__item--danger {
+  color: var(--t8-danger, #ef4444) !important;
+}
+
+.t8-context-menu__empty {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--t8-text-dim, rgba(148, 163, 184, 0.75));
+}
+
+.t8-context-menu__node-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  color: var(--t8-menu-icon-color, var(--t8-accent, #38bdf8));
+  background: color-mix(in srgb, var(--t8-menu-icon-color, var(--t8-accent, #38bdf8)) 20%, var(--t8-bg-panel, #111827));
+  border: 1px solid color-mix(in srgb, var(--t8-menu-icon-color, var(--t8-accent, #38bdf8)) 48%, transparent);
+}
+
+.t8-radial-node-menu-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 82;
+  pointer-events: none;
+}
+
+.t8-radial-node-menu {
+  position: fixed;
+  pointer-events: none;
+  color: var(--t8-radial-fg, var(--t8-text-main, #f8fafc));
+  --t8-radial-bg: color-mix(in srgb, var(--t8-bg-panel-elevated, #0f172a) 72%, transparent);
+  --t8-radial-border: color-mix(in srgb, var(--t8-accent, #38bdf8) 48%, transparent);
+  --t8-radial-glow: color-mix(in srgb, var(--t8-accent, #38bdf8) 28%, transparent);
+  --t8-radial-slot-bg: color-mix(in srgb, var(--t8-bg-panel, #111827) 88%, transparent);
+  --t8-radial-slot-border: color-mix(in srgb, var(--t8-border-strong, rgba(255,255,255,.2)) 80%, transparent);
+  --t8-radial-active-fg: #020617;
+}
+
+.t8-radial-node-menu__ring {
+  position: absolute;
+  inset: 7px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 50px, color-mix(in srgb, var(--t8-radial-glow) 34%, transparent) 51px 53px, transparent 54px 92px, color-mix(in srgb, var(--t8-radial-glow) 22%, transparent) 93px 96px, transparent 97px),
+    conic-gradient(from -90deg, color-mix(in srgb, var(--t8-radial-border) 28%, transparent), transparent 10%, color-mix(in srgb, var(--t8-radial-border) 28%, transparent) 12%, transparent 24%);
+  border: 1px solid var(--t8-radial-border);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.36), 0 0 34px var(--t8-radial-glow);
+  backdrop-filter: blur(10px);
+}
+
+.t8-radial-node-menu__ray {
+  position: absolute;
+  height: 3px;
+  border-radius: 999px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--t8-radial-border), transparent);
+  box-shadow: 0 0 12px var(--t8-radial-glow);
+}
+
+.t8-radial-node-menu__anchor {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: var(--t8-radial-border);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--t8-radial-border) 24%, transparent);
+}
+
+.t8-radial-node-menu__slot {
+  position: absolute;
+  width: 70px;
+  height: 58px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 14px;
+  background: var(--t8-radial-slot-bg);
+  border: 1px solid var(--t8-radial-slot-border);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  color: var(--t8-radial-fg, var(--t8-text-main, #f8fafc));
+  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease, border-color 0.12s ease, opacity 0.12s ease;
+}
+
+.t8-radial-node-menu__slot svg {
+  color: var(--radial-slot-color, var(--t8-accent, #38bdf8));
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--radial-slot-color, #38bdf8) 38%, transparent));
+}
+
+.t8-radial-node-menu__slot span {
+  max-width: 62px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.t8-radial-node-menu__slot.is-active {
+  transform: translate(-50%, -50%) scale(1.14);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--radial-slot-color) 82%, white), var(--radial-slot-color));
+  border-color: color-mix(in srgb, var(--radial-slot-color) 75%, white);
+  color: var(--t8-radial-active-fg);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34), 0 0 22px color-mix(in srgb, var(--radial-slot-color) 48%, transparent);
+}
+
+.t8-radial-node-menu__slot.is-active svg {
+  color: var(--t8-radial-active-fg);
+  filter: none;
+}
+
+.t8-radial-node-menu__slot.is-disabled {
+  opacity: 0.34;
+}
+
+.t8-radial-node-menu__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 88px;
+  height: 88px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+  background: var(--t8-radial-bg);
+  border: 1.5px solid var(--t8-radial-border);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #fff 10%, transparent), 0 12px 30px rgba(0, 0, 0, 0.36);
+}
+
+.t8-radial-node-menu__center strong {
+  max-width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.t8-radial-node-menu__center span {
+  font-size: 10px;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.7));
+}
+
+.t8-radial-node-menu__center.has-active {
+  border-color: var(--t8-accent, #38bdf8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t8-radial-node-menu__slot {
+    transition: none;
+  }
+}
+
+.t8-node-action-bar {
+  --t8-actionbar-bg: color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 94%, transparent);
+  --t8-actionbar-border: 1px solid var(--t8-border-strong, rgba(255, 255, 255, 0.18));
+  --t8-actionbar-shadow: var(--t8-shadow-button, 0 8px 24px rgba(0, 0, 0, 0.34));
+}
+
+.llm-chat-message {
+  min-height: 28px;
+}
+
+.llm-chat-action-button {
+  position: absolute;
+  top: 4px;
+  width: 23px;
+  min-width: 23px;
+  height: 23px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--t8-border-strong, rgba(255, 255, 255, 0.22));
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 88%, transparent);
+  color: var(--t8-accent, #38bdf8);
+  box-shadow: var(--t8-shadow-button, 0 8px 18px rgba(0, 0, 0, 0.24));
+  opacity: 0.78;
+  cursor: pointer;
+}
+
+.llm-chat-action-button--single {
+  right: 58px;
+}
+
+.llm-chat-action-button--smart {
+  right: 31px;
+}
+
+.llm-chat-action-button--delete {
+  right: 4px;
+  color: var(--t8-danger, #f87171);
+}
+
+.llm-chat-action-button:hover,
+.llm-chat-action-button:focus-visible {
+  opacity: 1;
+  outline: none;
+  background: var(--t8-accent, #38bdf8);
+  color: var(--t8-accent-text, #031522);
+}
+
+html[data-theme-visual="pixel"] .t8-context-menu {
+  --t8-context-menu-bg: #ffffff;
+  --t8-context-menu-border: 2px solid var(--px-ink, #1A1410);
+  --t8-context-menu-radius: 12px;
+  --t8-context-menu-shadow: 4px 4px 0 var(--px-ink, #1A1410);
+  --t8-context-menu-backdrop: none;
+  --t8-context-menu-header-bg: var(--px-candy-mint, #A8E6C9);
+  --t8-context-menu-header-text: var(--px-ink, #1A1410);
+  --t8-context-menu-item-text: var(--px-ink, #1A1410);
+  --t8-context-menu-item-hover: var(--px-yellow, #FFE08A);
+  --t8-context-menu-divider: 2px solid var(--px-ink, #1A1410);
+}
+
+html[data-theme-visual="pixel"] .t8-context-menu__node-icon {
+  border: 2px solid var(--px-ink, #1A1410);
+  color: var(--px-ink, #1A1410);
+  background: var(--t8-menu-icon-color, var(--px-candy-mint, #A8E6C9));
+}
+
+html[data-theme-visual="pixel"] .t8-radial-node-menu {
+  --t8-radial-bg: #fff7d6;
+  --t8-radial-border: var(--px-ink, #1A1410);
+  --t8-radial-glow: color-mix(in srgb, var(--px-yellow, #FFE08A) 55%, transparent);
+  --t8-radial-slot-bg: var(--px-surface, #fffdf0);
+  --t8-radial-slot-border: var(--px-ink, #1A1410);
+  --t8-radial-fg: var(--px-ink, #1A1410);
+}
+
+html[data-theme-visual="pixel"] .t8-radial-node-menu__ring,
+html[data-theme-visual="pixel"] .t8-radial-node-menu__slot,
+html[data-theme-visual="pixel"] .t8-radial-node-menu__center {
+  border-width: 2px;
+  box-shadow: 4px 4px 0 var(--px-ink, #1A1410);
+  backdrop-filter: none;
+}
+
+html[data-theme-visual="dragon-ball"] .t8-radial-node-menu {
+  --t8-radial-bg: color-mix(in srgb, var(--db-panel, #fff1b8) 88%, transparent);
+  --t8-radial-border: var(--db-orange, #f97316);
+  --t8-radial-glow: color-mix(in srgb, var(--db-gold, #facc15) 60%, transparent);
+  --t8-radial-slot-bg: color-mix(in srgb, var(--db-paper, #fff6d4) 92%, transparent);
+  --t8-radial-slot-border: var(--db-ink, #271606);
+  --t8-radial-fg: var(--db-ink, #271606);
+}
+
+html[data-theme-visual="dragon-ball"] .t8-radial-node-menu__ring {
+  border-width: 2px;
+  box-shadow: 0 0 0 3px var(--db-ink, #271606), 0 0 34px var(--t8-radial-glow);
+}
+
+html[data-theme-visual="rh"] .t8-radial-node-menu {
+  --t8-radial-bg: color-mix(in srgb, var(--rh-card, #102310) 86%, transparent);
+  --t8-radial-border: var(--rh-lime, #9cff4d);
+  --t8-radial-glow: color-mix(in srgb, var(--rh-lime, #9cff4d) 45%, transparent);
+  --t8-radial-slot-bg: color-mix(in srgb, var(--rh-card, #102310) 88%, transparent);
+  --t8-radial-slot-border: color-mix(in srgb, var(--rh-lime, #9cff4d) 42%, transparent);
+  --t8-radial-fg: var(--t8-text-main, #f4ffe8);
+}
+
+html[data-theme-visual="eva"] .t8-radial-node-menu {
+  --t8-radial-bg: color-mix(in srgb, var(--eva-panel-2, #0a1110) 88%, transparent);
+  --t8-radial-border: var(--eva-red, #ff3046);
+  --t8-radial-glow: color-mix(in srgb, var(--eva-green, #78ff4d) 34%, transparent);
+  --t8-radial-slot-bg: color-mix(in srgb, var(--eva-panel, #101817) 90%, transparent);
+  --t8-radial-slot-border: color-mix(in srgb, var(--eva-green, #78ff4d) 34%, transparent);
+  --t8-radial-fg: var(--t8-text-main, #ecffe8);
+}
+
+html[data-theme-visual="slamdunk"] .t8-radial-node-menu {
+  --t8-radial-bg: color-mix(in srgb, var(--sd-cream, #fff1c2) 90%, transparent);
+  --t8-radial-border: var(--sd-red, #c52222);
+  --t8-radial-glow: color-mix(in srgb, var(--sd-orange, #f97316) 46%, transparent);
+  --t8-radial-slot-bg: color-mix(in srgb, var(--sd-paper, #fff8df) 92%, transparent);
+  --t8-radial-slot-border: var(--sd-ink, #20120b);
+  --t8-radial-fg: var(--sd-ink, #20120b);
+}
+
+html[data-theme-visual="soccer-hero"] .t8-radial-node-menu {
+  --t8-radial-bg: color-mix(in srgb, var(--sc-blue, #1d4ed8) 48%, var(--sc-green, #16a34a));
+  --t8-radial-border: var(--sc-gold, #facc15);
+  --t8-radial-glow: color-mix(in srgb, var(--sc-gold, #facc15) 42%, transparent);
+  --t8-radial-slot-bg: color-mix(in srgb, var(--sc-field, #14532d) 86%, transparent);
+  --t8-radial-slot-border: color-mix(in srgb, var(--sc-white, #f8fafc) 48%, transparent);
+  --t8-radial-fg: var(--sc-white, #f8fafc);
+}
+
+html[data-theme-style="pixel"] .t8-theme-music-toggle {
+  --t8-theme-music-size: 34px;
+  border: var(--px-border-w, 2px) solid var(--px-ink, #1A1410);
+  border-radius: 999px;
+  background: var(--px-yellow, #FFE08A);
+  color: var(--px-ink, #1A1410);
+  box-shadow: var(--px-shadow-hard, 3px 3px 0 #1A1410);
+}
+
+html[data-theme-style="pixel"] .t8-theme-music-toggle:hover {
+  transform: translate(-1px, -1px);
+  background: var(--px-candy-mint, #A8E6C9);
+  color: var(--px-ink, #1A1410);
+  box-shadow: 4px 4px 0 var(--px-ink, #1A1410);
+}
+
+html[data-theme-style="pixel"] .t8-theme-music-toggle.is-playing {
+  background: var(--px-candy-pink, #FFB5C5);
+}
+
+html[data-theme-visual="op"] .t8-theme-music-toggle {
+  --t8-theme-music-size: 34px;
+  border: 3px solid var(--op-ink, #2b1b10);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 52%, var(--op-paper, #fff3cf) 0 38%, transparent 39%),
+    var(--op-gold, #f2c94c);
+  color: var(--op-ink, #2b1b10);
+  box-shadow: 3px 3px 0 var(--op-ink, #2b1b10);
+}
+
+html[data-theme-visual="op"] .t8-theme-music-toggle:hover {
+  transform: translate(-1px, -1px);
+  background:
+    radial-gradient(circle at 50% 52%, var(--op-paper, #fff3cf) 0 38%, transparent 39%),
+    var(--op-red, #c82828);
+  color: #fff7dc;
+  box-shadow: 4px 4px 0 var(--op-ink, #2b1b10);
+}
+
+html[data-theme-visual="op"] .t8-theme-music-toggle.is-playing {
+  background:
+    radial-gradient(circle at 50% 52%, var(--op-paper, #fff3cf) 0 38%, transparent 39%),
+    var(--op-ocean, #0f7c8c);
+  color: #fff7dc;
+}
+
+.t8-achievement-button,
+.t8-achievement-button--pixel {
+  white-space: nowrap;
+}
+
+.t8-achievement-button__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 18px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.t8-achievement-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  pointer-events: none;
+}
+
+.t8-achievement-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.24);
+  pointer-events: auto;
+}
+
+.t8-achievement-drawer__panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: min(520px, calc(100vw - 24px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+  color: var(--t8-text-main, #f8fafc);
+  background: color-mix(in srgb, var(--t8-bg-panel, #111827) 96%, transparent);
+  border: 1.5px solid var(--t8-border-strong, rgba(255, 255, 255, 0.18));
+  border-radius: 10px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+}
+
+.t8-achievement-drawer__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--t8-border, rgba(255, 255, 255, 0.12));
+  background: color-mix(in srgb, var(--t8-accent, #38bdf8) 13%, transparent);
+}
+
+.t8-achievement-drawer__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.t8-achievement-drawer__subtitle {
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.t8-achievement-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 10px;
+  border-bottom: 1px solid var(--t8-border, rgba(255, 255, 255, 0.12));
+}
+
+.t8-achievement-tabs button {
+  min-height: 32px;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 8px;
+  background: var(--t8-bg-panel-muted, rgba(255, 255, 255, 0.05));
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.t8-achievement-tabs button.is-active {
+  background: var(--t8-accent, #38bdf8);
+  color: var(--t8-accent-text, #07111f);
+  border-color: var(--t8-border-strong, rgba(255, 255, 255, 0.28));
+}
+
+.t8-achievement-drawer__body {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.t8-achievement-section,
+.t8-achievement-medal-list,
+.t8-achievement-film-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.t8-achievement-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.t8-achievement-kpis > div,
+.t8-achievement-card,
+.t8-achievement-theme-card,
+.t8-achievement-medal,
+.t8-achievement-film {
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #172033) 88%, transparent);
+}
+
+.t8-achievement-kpis > div {
+  min-height: 70px;
+  padding: 10px;
+}
+
+.t8-achievement-kpis span,
+.t8-achievement-theme-card__next,
+.t8-achievement-film__condition {
+  display: block;
+  font-size: 11px;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.t8-achievement-kpis strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.t8-achievement-card {
+  padding: 12px;
+}
+
+.t8-achievement-card__title {
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.t8-achievement-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.t8-achievement-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.t8-achievement-task-list {
+  display: grid;
+  gap: 8px;
+}
+
+.t8-achievement-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 38px;
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--achievement-accent, var(--t8-accent)) 38%, var(--t8-border));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--achievement-accent, var(--t8-accent)) 10%, var(--t8-bg-panel));
+  padding: 8px 10px;
+  color: var(--t8-text-main);
+  text-align: left;
+}
+
+.t8-achievement-task strong {
+  flex: 0 0 auto;
+  font-size: 12px;
+}
+
+.t8-achievement-task span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--t8-text-muted);
+}
+
+.t8-achievement-passport,
+.t8-achievement-review {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.t8-achievement-card__title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.t8-achievement-passport__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.t8-achievement-passport__top strong {
+  color: var(--t8-accent, #38bdf8);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.t8-achievement-passport__top span,
+.t8-achievement-review p {
+  color: var(--t8-text-muted, rgba(226, 232, 240, .72));
+  font-size: 11px;
+}
+
+.t8-achievement-passport__themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.t8-achievement-passport__themes button {
+  --achievement-accent: var(--t8-accent, #38bdf8);
+  min-width: 0;
+  min-height: 46px;
+  padding: 7px 8px;
+  border: 1px solid color-mix(in srgb, var(--achievement-accent) 42%, var(--t8-border, transparent));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--achievement-accent) 10%, transparent);
+  color: var(--t8-text-main, #f8fafc);
+  text-align: left;
+}
+
+.t8-achievement-passport__themes button.is-complete {
+  background: color-mix(in srgb, var(--achievement-accent) 22%, transparent);
+}
+
+.t8-achievement-passport__themes span,
+.t8-achievement-passport__themes strong {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-passport__themes span {
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.t8-achievement-passport__themes strong {
+  margin-top: 3px;
+  color: var(--achievement-accent);
+  font-size: 10px;
+}
+
+.t8-achievement-review__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.t8-achievement-review__grid > div {
+  min-height: 54px;
+  padding: 8px;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, .14));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #172033) 72%, transparent);
+}
+
+.t8-achievement-review__grid span {
+  display: block;
+  color: var(--t8-text-muted, rgba(226, 232, 240, .72));
+  font-size: 11px;
+}
+
+.t8-achievement-review__grid strong {
+  display: block;
+  min-width: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-review p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.t8-achievement-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.t8-achievement-theme-card {
+  --achievement-accent: var(--t8-accent, #38bdf8);
+  padding: 12px;
+  border-color: color-mix(in srgb, var(--achievement-accent) 45%, var(--t8-border, transparent));
+  color: var(--t8-text-main, #f8fafc);
+  text-align: left;
+  cursor: pointer;
+}
+
+.t8-achievement-theme-card:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--achievement-accent) 72%, var(--t8-border, transparent));
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--achievement-accent) 16%, transparent);
+}
+
+.t8-achievement-theme-card__top,
+.t8-achievement-medal__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.t8-achievement-theme-card__top span,
+.t8-achievement-medal__title span {
+  flex: 0 0 auto;
+  font-size: 10px;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.t8-achievement-theme-card__time {
+  margin: 8px 0;
+  color: var(--achievement-accent);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.t8-achievement-theme-card__next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.t8-achievement-theme-card__next span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-progress {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--t8-text-main, #fff) 10%, transparent);
+}
+
+.t8-achievement-progress span {
+  display: block;
+  height: 100%;
+  min-width: 4px;
+  border-radius: inherit;
+  background: var(--achievement-accent, var(--t8-accent, #38bdf8));
+}
+
+.t8-achievement-medal,
+.t8-achievement-film {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.t8-achievement-medal:not(.is-unlocked),
+.t8-achievement-film:not(.is-unlocked) {
+  opacity: 0.72;
+}
+
+.t8-achievement-medal__icon,
+.t8-achievement-film__poster,
+.t8-achievement-toast__icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  color: var(--t8-accent, #38bdf8);
+  background: color-mix(in srgb, var(--t8-accent, #38bdf8) 17%, transparent);
+  border: 1px solid color-mix(in srgb, var(--t8-accent, #38bdf8) 42%, transparent);
+}
+
+.t8-achievement-medal__body,
+.t8-achievement-film__body,
+.t8-achievement-toast__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.t8-achievement-medal__body p {
+  margin: 4px 0 8px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.t8-achievement-film__title {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.t8-achievement-film__status {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--t8-accent, #38bdf8);
+}
+
+.t8-achievement-film__player {
+  display: block;
+  width: 100%;
+  max-height: 190px;
+  margin-top: 8px;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 8px;
+  background: #020617;
+}
+
+.t8-achievement-theme-film .t8-achievement-film__player {
+  max-height: 150px;
+}
+
+.t8-achievement-film__stage-card {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  border: 1px solid color-mix(in srgb, var(--achievement-accent, var(--t8-accent, #38bdf8)) 46%, var(--t8-border, transparent));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 20%, color-mix(in srgb, var(--achievement-accent, var(--t8-accent, #38bdf8)) 22%, transparent), transparent 46%),
+    color-mix(in srgb, var(--t8-bg-panel-muted, rgba(255, 255, 255, 0.05)) 92%, transparent);
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.t8-achievement-film__stage-card:hover {
+  border-color: color-mix(in srgb, var(--achievement-accent, var(--t8-accent, #38bdf8)) 72%, var(--t8-border, transparent));
+  transform: translateY(-1px);
+}
+
+.t8-achievement-film__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.t8-achievement-film-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 10080;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  pointer-events: auto;
+  background:
+    radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--t8-accent, #38bdf8) 20%, transparent), transparent 34%),
+    rgba(2, 6, 23, 0.9);
+}
+
+.t8-achievement-film-stage__panel {
+  position: relative;
+  width: min(1120px, calc(100vw - 56px));
+  max-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1.5px solid var(--t8-border-strong, rgba(255, 255, 255, 0.2));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #0f172a) 96%, transparent);
+  color: var(--t8-text-main, #f8fafc);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.52);
+}
+
+.t8-achievement-film-stage__aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--t8-accent, #38bdf8) 22%, transparent), transparent 34%),
+    radial-gradient(circle at 82% 100%, color-mix(in srgb, var(--t8-warning, #facc15) 14%, transparent), transparent 34%);
+  opacity: 0.88;
+}
+
+.t8-achievement-film-stage__header,
+.t8-achievement-film-stage__footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-color: var(--t8-border, rgba(255, 255, 255, 0.12));
+}
+
+.t8-achievement-film-stage__header {
+  border-bottom: 1px solid var(--t8-border, rgba(255, 255, 255, 0.12));
+}
+
+.t8-achievement-film-stage__footer {
+  border-top: 1px solid var(--t8-border, rgba(255, 255, 255, 0.12));
+}
+
+.t8-achievement-film-stage__header span,
+.t8-achievement-film-stage__header em,
+.t8-achievement-film-stage__footer span {
+  display: block;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+  font-size: 11px;
+  font-style: normal;
+}
+
+.t8-achievement-film-stage__header strong {
+  display: block;
+  margin-top: 3px;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 1000;
+}
+
+.t8-achievement-film-stage__player {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: min(68vh, 720px);
+  background: #020617;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-drawer__panel,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__panel {
+  --saint-achievement-ink: #211607;
+  --saint-achievement-muted: rgba(33, 22, 7, 0.72);
+  --saint-achievement-panel: #fff7dc;
+  --saint-achievement-card: rgba(255, 251, 235, 0.96);
+  --saint-achievement-card-strong: #fff1b7;
+  --saint-achievement-line: rgba(33, 22, 7, 0.62);
+  --saint-achievement-accent: #bf7f14;
+  --saint-achievement-cosmo: #087b86;
+  --t8-text-main: var(--saint-achievement-ink);
+  --t8-text-muted: var(--saint-achievement-muted);
+  --t8-bg-panel: var(--saint-achievement-panel);
+  --t8-bg-panel-elevated: var(--saint-achievement-card);
+  --t8-bg-panel-muted: rgba(255, 238, 180, 0.82);
+  --t8-border: var(--saint-achievement-line);
+  --t8-border-strong: #211607;
+  --t8-accent: var(--saint-achievement-accent);
+  --t8-accent-text: #211607;
+  --t8-warning: #d49d2d;
+  color: var(--saint-achievement-ink) !important;
+  border-color: #211607 !important;
+  background:
+    radial-gradient(circle at 80% 7%, rgba(255, 230, 138, 0.62), transparent 27%),
+    radial-gradient(circle at 14% 98%, rgba(39, 214, 223, 0.16), transparent 26%),
+    linear-gradient(180deg, #fff9df, #f3d989 48%, #fff5cf) !important;
+}
+
+html[data-theme-visual="saint-seiya"][data-theme-mode="dark"] .t8-achievement-drawer__panel,
+html[data-theme-visual="saint-seiya"][data-theme-mode="dark"] .t8-achievement-film-stage__panel {
+  --saint-achievement-ink: #fff7db;
+  --saint-achievement-muted: rgba(255, 247, 219, 0.78);
+  --saint-achievement-panel: #071226;
+  --saint-achievement-card: rgba(12, 24, 46, 0.96);
+  --saint-achievement-card-strong: #142744;
+  --saint-achievement-line: rgba(255, 230, 138, 0.54);
+  --saint-achievement-accent: #ffe68a;
+  --saint-achievement-cosmo: #67e8f9;
+  --t8-border-strong: #ffe68a;
+  --t8-accent-text: #071226;
+  color: var(--saint-achievement-ink) !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(248, 200, 74, 0.22), transparent 30%),
+    radial-gradient(circle at 82% 94%, rgba(103, 232, 249, 0.16), transparent 28%),
+    linear-gradient(180deg, #081125, #0d1e38 48%, #071226) !important;
+}
+
+html[data-theme-visual="saint-seiya"][data-saint-mode="hades"] .t8-achievement-drawer__panel,
+html[data-theme-visual="saint-seiya"][data-saint-mode="hades"] .t8-achievement-film-stage__panel {
+  --saint-achievement-accent: #ffe68a;
+  --saint-achievement-cosmo: #67e8f9;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 230, 138, 0.2), transparent 27%),
+    radial-gradient(circle at 50% 100%, rgba(183, 42, 89, 0.28), transparent 34%),
+    linear-gradient(180deg, #080b19, #16102a 50%, #090817) !important;
+}
+
+html[data-theme-visual="saint-seiya"][data-saint-mode="hades"]:not([data-theme-mode="dark"]) .t8-achievement-drawer__panel,
+html[data-theme-visual="saint-seiya"][data-saint-mode="hades"]:not([data-theme-mode="dark"]) .t8-achievement-film-stage__panel {
+  --saint-achievement-ink: #211607;
+  --saint-achievement-muted: rgba(33, 22, 7, 0.74);
+  --saint-achievement-card: rgba(255, 250, 229, 0.96);
+  --saint-achievement-line: rgba(33, 22, 7, 0.64);
+  --saint-achievement-accent: #9a5f09;
+  --saint-achievement-cosmo: #087b86;
+  --t8-accent-text: #211607;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.58), transparent 22%),
+    radial-gradient(circle at 70% 70%, rgba(222, 74, 112, 0.18), transparent 28%),
+    linear-gradient(180deg, #fff8dd, #efd27b 52%, #fff1c3) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-drawer__header,
+html[data-theme-visual="saint-seiya"] .t8-achievement-tabs,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__header,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__footer {
+  border-color: var(--saint-achievement-line) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-drawer__header {
+  color: var(--saint-achievement-ink) !important;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--saint-achievement-accent) 64%, #fff8dc), color-mix(in srgb, var(--saint-achievement-cosmo) 22%, #fff1b7)) !important;
+}
+
+html[data-theme-visual="saint-seiya"][data-theme-mode="dark"] .t8-achievement-drawer__header,
+html[data-theme-visual="saint-seiya"][data-theme-mode="dark"] .t8-achievement-film-stage__header {
+  background:
+    linear-gradient(90deg, rgba(248, 200, 74, 0.2), rgba(103, 232, 249, 0.08), rgba(248, 200, 74, 0.14)) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-drawer__title,
+html[data-theme-visual="saint-seiya"] .t8-achievement-drawer__subtitle,
+html[data-theme-visual="saint-seiya"] .t8-achievement-card__title,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-task-group h4,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film__title,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-task__top strong,
+html[data-theme-visual="saint-seiya"] .t8-achievement-medal__title strong,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__header strong {
+  color: var(--saint-achievement-ink) !important;
+  text-shadow: none !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-drawer__subtitle,
+html[data-theme-visual="saint-seiya"] .t8-achievement-kpis span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-card__next,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film__condition,
+html[data-theme-visual="saint-seiya"] .t8-achievement-passport__top span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-review p,
+html[data-theme-visual="saint-seiya"] .t8-achievement-review__grid span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-detail__kpis span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-task__body p,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-task__meta,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-task__hint,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-showcase p,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-showcase__head span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-showcase__foot,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__header span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__header em,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__footer span {
+  color: var(--saint-achievement-muted) !important;
+  text-shadow: none !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-kpis > div,
+html[data-theme-visual="saint-seiya"] .t8-achievement-card,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-card,
+html[data-theme-visual="saint-seiya"] .t8-achievement-medal,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-detail__kpis > div,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-next,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-task,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-film,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-showcase,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-showcase__grid > div,
+html[data-theme-visual="saint-seiya"] .t8-achievement-review__grid > div {
+  color: var(--saint-achievement-ink) !important;
+  border-color: var(--saint-achievement-line) !important;
+  background: var(--saint-achievement-card) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-tabs button,
+html[data-theme-visual="saint-seiya"] .t8-achievement-back,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film__stage-card,
+html[data-theme-visual="saint-seiya"] .t8-achievement-passport__themes button,
+html[data-theme-visual="saint-seiya"] .t8-achievement-task {
+  color: var(--saint-achievement-ink) !important;
+  border-color: var(--saint-achievement-line) !important;
+  background: color-mix(in srgb, var(--saint-achievement-card-strong) 78%, transparent) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-tabs button.is-active,
+html[data-theme-visual="saint-seiya"] .t8-achievement-task:hover,
+html[data-theme-visual="saint-seiya"] .t8-achievement-passport__themes button.is-complete {
+  color: var(--t8-accent-text, #211607) !important;
+  border-color: var(--saint-achievement-line) !important;
+  background: linear-gradient(180deg, var(--saint-achievement-cosmo), var(--saint-achievement-accent)) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-progress {
+  background: color-mix(in srgb, var(--saint-achievement-ink) 12%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--saint-achievement-line) 70%, transparent);
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-progress span,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-showcase__grid strong,
+html[data-theme-visual="saint-seiya"] .t8-achievement-theme-detail__kpis strong,
+html[data-theme-visual="saint-seiya"] .t8-achievement-passport__top strong,
+html[data-theme-visual="saint-seiya"] .t8-achievement-film__status {
+  color: var(--saint-achievement-accent) !important;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage {
+  background:
+    radial-gradient(circle at 50% 47%, rgba(248, 200, 74, 0.24), transparent 22%),
+    radial-gradient(circle at 50% 48%, transparent 0 30%, rgba(103, 232, 249, 0.13) 31% 36%, transparent 37%),
+    linear-gradient(rgba(255, 230, 138, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 230, 138, 0.12) 1px, transparent 1px),
+    rgba(2, 5, 18, 0.92);
+  background-size: auto, auto, 52px 52px, 52px 52px, auto;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__panel {
+  box-shadow:
+    0 0 0 3px rgba(255, 247, 219, 0.16),
+    0 0 70px rgba(248, 200, 74, 0.28),
+    0 30px 110px rgba(0, 0, 0, 0.62);
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__aura {
+  background:
+    conic-gradient(from -20deg at 50% 50%, transparent 0 18deg, rgba(248, 200, 74, 0.18) 20deg 24deg, transparent 26deg 56deg, rgba(103, 232, 249, 0.12) 58deg 62deg, transparent 64deg 100deg),
+    radial-gradient(circle at 50% 48%, rgba(248, 200, 74, 0.18), transparent 32%);
+  animation: t8-achievement-saint-cosmo 8s linear infinite;
+}
+
+html[data-theme-visual="saint-seiya"] .t8-achievement-film-stage__player {
+  min-height: min(58vw, 580px);
+  border-top: 1px solid var(--saint-achievement-line);
+  border-bottom: 1px solid var(--saint-achievement-line);
+  background: #020617;
+}
+
+@keyframes t8-achievement-saint-cosmo {
+  from {
+    transform: rotate(0deg) scale(1.02);
+  }
+  to {
+    transform: rotate(360deg) scale(1.02);
+  }
+}
+
+.t8-achievement-back {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 999px;
+  background: var(--t8-bg-panel-muted, rgba(255, 255, 255, 0.05));
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.t8-achievement-theme-detail {
+  --achievement-accent: var(--t8-accent, #38bdf8);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.t8-achievement-theme-hero {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--achievement-accent) 52%, var(--t8-border, transparent));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--achievement-accent) 28%, transparent), transparent 36%),
+    color-mix(in srgb, var(--t8-bg-panel-elevated, #172033) 90%, transparent);
+}
+
+.t8-achievement-theme-hero span {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--achievement-accent) 20%, transparent);
+  color: var(--achievement-accent);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.t8-achievement-theme-hero h3 {
+  margin: 8px 0 0;
+  font-size: 20px;
+  line-height: 1.05;
+}
+
+.t8-achievement-theme-hero strong {
+  min-width: 64px;
+  text-align: right;
+  color: var(--achievement-accent);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.t8-achievement-theme-detail__kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.t8-achievement-theme-detail__kpis > div,
+.t8-achievement-theme-next,
+.t8-achievement-theme-task,
+.t8-achievement-theme-film,
+.t8-achievement-theme-showcase {
+  border: 1px solid var(--t8-border, rgba(255, 255, 255, 0.14));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #172033) 88%, transparent);
+}
+
+.t8-achievement-theme-detail__kpis > div {
+  min-height: 62px;
+  padding: 9px;
+}
+
+.t8-achievement-theme-detail__kpis span,
+.t8-achievement-theme-task__meta,
+.t8-achievement-theme-task__hint {
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+  font-size: 11px;
+}
+
+.t8-achievement-theme-detail__kpis strong {
+  display: block;
+  min-width: 0;
+  margin-top: 6px;
+  overflow: hidden;
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 15px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-theme-next {
+  min-height: 42px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-color: color-mix(in srgb, var(--achievement-accent) 40%, var(--t8-border, transparent));
+}
+
+.t8-achievement-theme-next svg {
+  color: var(--achievement-accent);
+}
+
+.t8-achievement-theme-next span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-theme-next strong {
+  color: var(--achievement-accent);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.t8-achievement-theme-showcase {
+  padding: 10px;
+}
+
+.t8-achievement-theme-showcase__head,
+.t8-achievement-theme-showcase__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.t8-achievement-theme-showcase__head {
+  color: var(--achievement-accent);
+}
+
+.t8-achievement-theme-showcase__head strong {
+  min-width: 0;
+  flex: 1;
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 13px;
+}
+
+.t8-achievement-theme-showcase__head span,
+.t8-achievement-theme-showcase__foot {
+  color: var(--t8-text-muted, rgba(226, 232, 240, .72));
+  font-size: 10px;
+}
+
+.t8-achievement-theme-showcase p {
+  margin: 8px 0;
+  color: var(--t8-text-muted, rgba(226, 232, 240, .72));
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.t8-achievement-theme-showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.t8-achievement-theme-showcase__grid > div {
+  min-height: 48px;
+  padding: 7px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--achievement-accent) 10%, transparent);
+}
+
+.t8-achievement-theme-showcase__grid span {
+  display: block;
+  color: var(--t8-text-muted, rgba(226, 232, 240, .72));
+  font-size: 10px;
+}
+
+.t8-achievement-theme-showcase__grid strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--achievement-accent);
+  font-size: 17px;
+  line-height: 1;
+}
+
+.t8-achievement-theme-showcase__foot {
+  margin-top: 8px;
+}
+
+.t8-achievement-theme-showcase__foot span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-theme-task-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.t8-achievement-theme-task-group h4 {
+  margin: 4px 0 0;
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.t8-achievement-theme-task-list {
+  display: grid;
+  gap: 8px;
+}
+
+.t8-achievement-theme-task,
+.t8-achievement-theme-film {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+
+.t8-achievement-theme-task.is-hidden-task {
+  border-color: color-mix(in srgb, var(--achievement-accent) 62%, var(--t8-border, transparent));
+  background:
+    repeating-linear-gradient(135deg, transparent 0 13px, color-mix(in srgb, var(--achievement-accent) 8%, transparent) 13px 14px),
+    color-mix(in srgb, var(--t8-bg-panel-elevated, #172033) 88%, transparent);
+}
+
+.t8-achievement-theme-task:not(.is-unlocked),
+.t8-achievement-theme-film:not(.is-unlocked) {
+  opacity: .82;
+}
+
+.t8-achievement-theme-task.is-tracking-disabled {
+  opacity: .66;
+}
+
+.t8-achievement-theme-task__icon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border: 1px solid color-mix(in srgb, var(--achievement-accent) 42%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--achievement-accent) 16%, transparent);
+  color: var(--achievement-accent);
+}
+
+.t8-achievement-theme-task__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.t8-achievement-theme-task__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.t8-achievement-theme-task__top strong {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-theme-task__top span {
+  flex: 0 0 auto;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--achievement-accent) 16%, transparent);
+  color: var(--achievement-accent);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.t8-achievement-theme-task__body p {
+  margin: 4px 0 8px;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.t8-achievement-theme-task__hint {
+  margin: -2px 0 8px;
+  padding: 6px 8px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--achievement-accent) 10%, transparent);
+}
+
+.t8-achievement-theme-task__disabled {
+  margin: -2px 0 8px;
+  padding: 6px 8px;
+  border: 1px solid color-mix(in srgb, var(--t8-warning, #facc15) 36%, transparent);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--t8-warning, #facc15) 14%, transparent);
+  color: var(--t8-text-main, #f8fafc);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.t8-achievement-theme-task__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.t8-achievement-alert,
+.t8-achievement-empty {
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  background: color-mix(in srgb, var(--t8-warning, #facc15) 18%, transparent);
+  color: var(--t8-text-main, #f8fafc);
+}
+
+.t8-achievement-alert--disabled {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid color-mix(in srgb, var(--t8-warning, #facc15) 38%, transparent);
+}
+
+.t8-achievement-alert--disabled strong,
+.t8-achievement-alert--disabled span {
+  display: block;
+}
+
+.t8-achievement-alert--disabled strong {
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+
+.t8-achievement-alert--disabled span {
+  color: var(--t8-text-muted, rgba(226, 232, 240, .72));
+  line-height: 1.45;
+}
+
+.t8-achievement-toast-stack {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 10030;
+  display: flex;
+  width: min(360px, calc(100vw - 36px));
+  flex-direction: column;
+  gap: 10px;
+}
+
+.t8-achievement-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--t8-border-strong, rgba(255, 255, 255, 0.2));
+  border-radius: 10px;
+  color: var(--t8-text-main, #f8fafc);
+  background: color-mix(in srgb, var(--t8-bg-panel-elevated, #111827) 96%, transparent);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+}
+
+.t8-achievement-toast__body strong,
+.t8-achievement-toast__body span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t8-achievement-toast__body strong {
+  font-size: 13px;
+}
+
+.t8-achievement-toast__body span {
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--t8-text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.t8-hidden-ceremony {
+  --ceremony-accent: #38bdf8;
+  --ceremony-ink: #f8fafc;
+  position: fixed;
+  inset: 0;
+  z-index: 10035;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.t8-hidden-ceremony.is-rh-duck {
+  --ceremony-accent: #ff345f;
+  --ceremony-ink: #ffe8ee;
+}
+
+.t8-hidden-ceremony.is-yyh-portrait {
+  --ceremony-accent: #ff5fd2;
+  --ceremony-ink: #f0fff8;
+}
+
+.t8-hidden-ceremony.is-dragon-ball-shenron {
+  --ceremony-accent: #24f2c1;
+  --ceremony-ink: #eafffb;
+}
+
+.t8-hidden-ceremony__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--ceremony-accent) 22%, transparent), transparent 34%),
+    rgba(0, 0, 0, .38);
+  animation: t8-ceremony-scrim 4.6s ease forwards;
+}
+
+.t8-hidden-ceremony__stage {
+  position: relative;
+  width: min(520px, calc(100vw - 42px));
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 28px 42px;
+  border: 2px solid color-mix(in srgb, var(--ceremony-accent) 78%, white 6%);
+  border-radius: 10px;
+  background:
+    linear-gradient(90deg, transparent 0 48%, color-mix(in srgb, var(--ceremony-accent) 20%, transparent) 49% 51%, transparent 52%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, rgba(7, 18, 23, .96), rgba(3, 8, 13, .98));
+  color: var(--ceremony-ink);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ceremony-accent) 26%, transparent),
+    0 0 44px color-mix(in srgb, var(--ceremony-accent) 36%, transparent),
+    0 24px 80px rgba(0, 0, 0, .45);
+  pointer-events: auto;
+  animation: t8-ceremony-stage 4.2s ease both;
+}
+
+.t8-hidden-ceremony.is-dragon-ball-shenron .t8-hidden-ceremony__stage {
+  border-radius: 999px 18px 999px 18px;
+  background:
+    radial-gradient(circle at 50% 54%, color-mix(in srgb, var(--ceremony-accent) 20%, transparent), transparent 38%),
+    repeating-conic-gradient(from 0deg, rgba(36,242,193,.10) 0 6deg, transparent 6deg 18deg),
+    linear-gradient(180deg, #061c22, #02090d);
+}
+
+.t8-hidden-ceremony__sigil {
+  width: 74px;
+  height: 74px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  color: var(--ceremony-accent);
+  background: color-mix(in srgb, var(--ceremony-accent) 10%, transparent);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--ceremony-accent) 48%, transparent);
+  animation: t8-ceremony-sigil 1.35s ease-in-out infinite alternate;
+}
+
+.t8-hidden-ceremony__scan {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 0;
+  height: 42px;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--ceremony-accent) 24%, transparent), transparent);
+  animation: t8-ceremony-scan 1.4s linear infinite;
+}
+
+.t8-hidden-ceremony__label {
+  margin-top: 16px;
+  color: var(--ceremony-accent);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.t8-hidden-ceremony h3 {
+  margin: 8px 0 0;
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1.05;
+  text-align: center;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--ceremony-accent) 54%, transparent);
+}
+
+.t8-hidden-ceremony p {
+  max-width: 360px;
+  margin: 10px 0 0;
+  color: color-mix(in srgb, var(--ceremony-ink) 76%, transparent);
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.t8-hidden-ceremony__stage > span {
+  margin-top: 12px;
+  padding: 3px 9px;
+  border: 1px solid color-mix(in srgb, var(--ceremony-accent) 42%, transparent);
+  border-radius: 999px;
+  color: var(--ceremony-accent);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.t8-hidden-ceremony__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@keyframes t8-ceremony-scrim {
+  0% { opacity: 0; }
+  10%, 82% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes t8-ceremony-stage {
+  0% { opacity: 0; transform: translateY(18px) scale(.94); }
+  12%, 82% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-10px) scale(.98); }
+}
+
+@keyframes t8-ceremony-sigil {
+  from { transform: scale(.96); }
+  to { transform: scale(1.06); }
+}
+
+@keyframes t8-ceremony-scan {
+  from { transform: translateY(-44px); }
+  to { transform: translateY(250px); }
+}
+
+html[data-theme-style="pixel"] .t8-achievement-drawer__panel,
+html[data-theme-style="pixel"] .t8-achievement-toast {
+  border: 2px solid var(--px-ink, #1A1410);
+  border-radius: 12px;
+  background: var(--px-paper, #fff6d8);
+  color: var(--px-ink, #1A1410);
+  box-shadow: 5px 5px 0 var(--px-ink, #1A1410);
+}
+
+html[data-theme-style="pixel"] .t8-achievement-drawer__header {
+  background: var(--px-yellow, #FFE08A);
+  border-bottom: 2px solid var(--px-ink, #1A1410);
+}
+
+html[data-theme-style="pixel"] .t8-achievement-tabs button,
+html[data-theme-style="pixel"] .t8-achievement-kpis > div,
+html[data-theme-style="pixel"] .t8-achievement-card,
+html[data-theme-style="pixel"] .t8-achievement-theme-card,
+html[data-theme-style="pixel"] .t8-achievement-theme-detail__kpis > div,
+html[data-theme-style="pixel"] .t8-achievement-theme-hero,
+html[data-theme-style="pixel"] .t8-achievement-theme-next,
+html[data-theme-style="pixel"] .t8-achievement-theme-task,
+html[data-theme-style="pixel"] .t8-achievement-theme-film,
+html[data-theme-style="pixel"] .t8-achievement-theme-showcase,
+html[data-theme-style="pixel"] .t8-achievement-medal,
+html[data-theme-style="pixel"] .t8-achievement-film {
+  border: 2px solid var(--px-ink, #1A1410);
+  background: #fffaf0;
+  color: var(--px-ink, #1A1410);
+  box-shadow: 2px 2px 0 var(--px-ink, #1A1410);
+}
+
+html[data-theme-style="pixel"] .t8-achievement-tabs button.is-active {
+  background: var(--px-candy-mint, #A8E6C9);
+  color: var(--px-ink, #1A1410);
+}
+
+html[data-theme-style="pixel"] .t8-achievement-back,
+html[data-theme-style="pixel"] .t8-achievement-theme-task__icon,
+html[data-theme-style="pixel"] .t8-achievement-theme-task__top span,
+html[data-theme-style="pixel"] .t8-achievement-passport__themes button,
+html[data-theme-style="pixel"] .t8-achievement-review__grid > div {
+  border: 2px solid var(--px-ink, #1A1410);
+  background: var(--px-yellow, #FFE08A);
+  color: var(--px-ink, #1A1410);
+}
+
+@media (max-width: 680px) {
+  .t8-achievement-theme-grid,
+  .t8-achievement-kpis,
+  .t8-achievement-theme-detail__kpis,
+  .t8-achievement-passport__themes,
+  .t8-achievement-review__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .t8-achievement-drawer__panel {
+    top: 6px;
+    right: 6px;
+    bottom: 6px;
+    width: calc(100vw - 12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t8-achievement-theme-card:hover,
+  .t8-hidden-ceremony__scrim,
+  .t8-hidden-ceremony__stage,
+  .t8-hidden-ceremony__sigil,
+  .t8-hidden-ceremony__scan {
+    animation: none !important;
+    transform: none !important;
+  }
+}
